@@ -30,6 +30,21 @@ p {
   text-align: center;
 }
 
+.text-primary {
+  color: #93cb52;
+}
+
+.l-heading {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+
+.lead {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
 /* Navbar */
 #navbar {
   display: flex;
@@ -40,6 +55,10 @@ p {
   justify-content: space-between;
   z-index: 1;
   padding: 1rem;
+}
+
+#navbar span {
+  color: #0d5eeb;
 }
 
 #navbar ul {
@@ -57,4 +76,28 @@ p {
 #navbar ul li a:hover {
   background: #93cb52;
   border-radius: 5px;
+}
+
+/* Showcase */
+#showcase {
+  background: #333 url('./img/ink-cloud.jpg') no-repeat center center/cover;
+  height: 100vh;
+  color: #fff;
+}
+
+#showcase .showcase-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 2rem;
+  /* Overlay */
+  position: absolute;
+  top: 65px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
 }
