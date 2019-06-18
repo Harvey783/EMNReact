@@ -8,7 +8,7 @@ import Header from './Header';
 
 class App extends Component {
   componentDidMount() {
-    // this.props.XXX();
+    this.props.fetchUser();
   }
 
   render() {
