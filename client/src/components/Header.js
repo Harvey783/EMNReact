@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Header extends Component {
@@ -9,35 +8,33 @@ class Header extends Component {
         return;
       case false:
         return (
-          <a href="/auth/google" className="ui black active item">
-            Login With Google
-          </a>
+          <li>
+            <a href="/auth/google">Login With Google</a>
+          </li>
         );
       default:
         return (
-          <ul>
+          <div>
             <li>
-              <a href="/api/logout" className="ui black active item">
-                Logout
-              </a>
+              <a href="/">Home</a>
             </li>
-          </ul>
+            <li>
+              <a href="/api/logout">Sign Out</a>
+            </li>
+          </div>
         );
     }
   }
 
   render() {
     return (
-      <div className="ui inverted segment">
-        <div className="ui inverted secondary menu">
-          <Link to="/" className="ui red active item">
-            BUZZFEEDER
-          </Link>
-          <div className="ui inverted secondary menu right menu">
-            {this.renderContent()}
-          </div>
-        </div>
-      </div>
+      <nav id="navbar">
+        <h5 className="logo">
+          <span className="text-primary">BUZZ</span>
+          FEEDER
+        </h5>
+        <ul>{this.renderContent()}</ul>
+      </nav>
     );
   }
 }
