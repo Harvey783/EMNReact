@@ -29,10 +29,11 @@ passport.use(
       if (existingUser) {
         return done(null, existingUser);
       } else {
-        console.log('access token', accessToken);
-        console.log('refresh token', refreshToken);
-        console.log('profile', profile);
-        const user = await new User({ googleId: profile.id }).save();
+        console.log(profile.photos.value);
+        const user = await new User({
+          googleId: profile.id,
+          userName: profile.name.givenName
+        }).save();
         return done(null, user);
       }
     }
