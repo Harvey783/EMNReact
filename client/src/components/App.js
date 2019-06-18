@@ -1,17 +1,31 @@
-import React from 'react';
-const App = () => {
-  return (
-    <div className="App">
-      <a
-        className="App-link"
-        href="/auth/google"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Google Login
-      </a>
-    </div>
-  );
-};
+import 'materialize-css/dist/css/materialize.min.css';
+import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+import Header from './Header';
+// import Landing from './Landing';
 
-export default App;
+class App extends Component {
+  componentDidMount() {
+    // this.props.XXX();
+  }
+
+  render() {
+    return (
+      <div className="container">
+        <BrowserRouter>
+          <div>
+            <Header />
+            {/* <Route exact path="/" component={Landing} /> */}
+          </div>
+        </BrowserRouter>
+      </div>
+    );
+  }
+}
+
+export default connect(
+  null,
+  actions
+)(App);
