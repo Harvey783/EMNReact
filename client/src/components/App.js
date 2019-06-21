@@ -1,10 +1,10 @@
-import 'materialize-css/dist/css/materialize.min.css';
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
+import Home from './Home';
 
 class App extends Component {
   componentDidMount() {
@@ -18,6 +18,7 @@ class App extends Component {
           <div>
             <Header />
             <Route exact path="/" component={Landing} />
+            <Route exact path="/posts" component={Home} />
           </div>
         </BrowserRouter>
       </div>
