@@ -12,4 +12,14 @@ module.exports = app => {
     const post = await Post.create({ ...req.body, user: req.user.id });
     res.send(post);
   });
+
+  app.delete('/api/posts/:id', requireLogin, async (req, res) => {
+    await Post.findOneAndDelete({ _id: req.params.id });
+    res.json({ msg: 'Target Destroyed' });
+  });
+
+  app.put('/api/posts/:id', requireLogin, async (req, res) => {
+    const post = await Post.findByIdAndUpdate({ _id: req.params.id }, req.body);
+    res.send(post);
+  });
 };
