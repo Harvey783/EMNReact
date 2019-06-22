@@ -20,6 +20,7 @@ module.exports = app => {
     req.logout();
     res.redirect('/');
   });
+
   app.get('/api/current-user', (req, res) => {
     res.send(req.user);
   });
