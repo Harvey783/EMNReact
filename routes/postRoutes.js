@@ -8,6 +8,11 @@ module.exports = app => {
     res.send(posts);
   });
 
+  app.get('/api/posts/:id', async (req, res) => {
+    const post = await Post.findById({ _id: req.params.id });
+    res.send(post);
+  });
+
   app.post('/api/posts', requireLogin, async (req, res) => {
     const post = await Post.create({
       ...req.body,
@@ -28,7 +33,7 @@ module.exports = app => {
     res.send(post);
   });
 
-  app.post('/api/posts/:id/comments', requireLogin, async (req, res) => {
+  app.post('/api/posts/:id/', requireLogin, async (req, res) => {
     // const user = await User.findById({ _id: req.params.id });
     const post = await Post.findById({ _id: req.params.id });
 
