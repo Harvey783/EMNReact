@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
-import Home from './Home';
+import PostsList from './PostsList';
 
 class App extends Component {
   componentDidMount() {
@@ -18,7 +18,7 @@ class App extends Component {
           <div>
             <Header />
             <Route exact path="/" component={Landing} />
-            <Route exact path="/posts" component={Home} />
+            <Route exact path="/posts" component={PostsList} />
           </div>
         </BrowserRouter>
       </div>
