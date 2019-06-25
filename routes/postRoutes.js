@@ -34,7 +34,6 @@ module.exports = app => {
   });
 
   app.post('/api/posts/:id/', requireLogin, async (req, res) => {
-    // const user = await User.findById({ _id: req.params.id });
     const post = await Post.findById({ _id: req.params.id });
 
     const newComment = {
