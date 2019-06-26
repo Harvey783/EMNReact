@@ -1,29 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.4;
-}
-
-a {
-  text-decoration: none;
-}
-
-p {
-  margin: 0.75rem 0;
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0;
-  overflow: hidden;
+.content-top {
+  margin-top: 20px;
 }
 
 .text-center {
@@ -32,17 +10,6 @@ p {
 
 .text-primary {
   color: #93cb52;
-}
-
-.l-heading {
-  font-size: 1.75rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.1;
-}
-
-.lead {
-  font-size: 1.25rem;
-  margin-bottom: 10px;
 }
 
 /* Navbar */
@@ -57,8 +24,13 @@ p {
   padding: 1rem;
 }
 
+.logo {
+  margin-top: 10px;
+  align: middle;
+}
+
 #navbar span {
-  color: #0d5eeb;
+  color: #ed1313;
 }
 
 #navbar ul {
@@ -74,30 +46,56 @@ p {
 }
 
 #navbar ul li a:hover {
-  background: #93cb52;
-  border-radius: 5px;
+  background: #f50000;
+  border-radius: 1px;
 }
 
-/* Showcase */
-#showcase {
-  background: #333 url('./img/ink-cloud.jpg') no-repeat center center/cover;
-  height: 100vh;
-  color: #fff;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
 }
 
-#showcase .showcase-content {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  padding: 0 2rem;
-  /* Overlay */
-  position: absolute;
-  top: 65px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+body {
+  margin: 20px;
+}
+
+.action {
+  margin-left: 10px;
+  color: #777;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.likes,
+.likes:hover {
+  color: firebrick;
+  cursor: default;
+}
+
+.description {
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.content {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  flex: 1;
+}
+
+.title {
+  font-weight: normal;
+  color: firebrick;
+  text-decoration: none;
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.container.header-title {
+  font-weight: bold;
+  color: firebrick;
+  text-decoration: none;
+  margin-bottom: 5px;
+  font-size: 18px;
 }

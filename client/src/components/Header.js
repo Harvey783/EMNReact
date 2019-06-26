@@ -14,14 +14,10 @@ class Header extends Component {
         );
       default:
         return (
-          <div>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/api/logout">Sign Out</a>
-            </li>
-          </div>
+          <li>
+            <a href="/posts">New Post</a>
+            <a href="/api/logout">Sign Out</a>
+          </li>
         );
     }
   }
@@ -30,8 +26,8 @@ class Header extends Component {
     return (
       <nav id="navbar">
         <h5 className="logo">
-          <span className="text-primary">BUZZ</span>
-          FEEDER
+          <span className="text-primary">Reddit</span>
+          Lite
         </h5>
         <ul>{this.renderContent()}</ul>
       </nav>

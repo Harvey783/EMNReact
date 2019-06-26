@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
-import Landing from './Landing';
 import PostsList from './PostsList';
 
 class App extends Component {
@@ -13,15 +12,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <BrowserRouter>
-          <div>
-            <Header />
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/posts" component={PostsList} />
-          </div>
-        </BrowserRouter>
-      </div>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/posts" component={PostsList} />
+        </Switch>
+      </Router>
     );
   }
 }
