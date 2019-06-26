@@ -30,7 +30,7 @@
 }
 
 #navbar span {
-  color: #ed1313;
+  color: #dc9b9b;
 }
 
 #navbar ul {
@@ -43,6 +43,7 @@
   color: #fff;
   padding: 0.75rem;
   margin: 0 0.25rem;
+  font-size: 12px;
 }
 
 #navbar ul li a:hover {
@@ -92,10 +93,23 @@ body {
   font-size: 16px;
 }
 
+.text {
+  font-weight: normal;
+  text-decoration: none;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
 .container.header-title {
   font-weight: bold;
   color: firebrick;
   text-decoration: none;
   margin-bottom: 5px;
   font-size: 18px;
+}
+
+.comments {
+  color: firebrick;
+  text-decoration: none;
+  font-size: 14px;
 }

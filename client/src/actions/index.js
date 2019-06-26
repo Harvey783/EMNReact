@@ -15,3 +15,8 @@ export const getPost = id => async dispatch => {
   const res = await axios.get(`/api/posts/${id}`);
   dispatch({ type: GET_POST, payload: res.data });
 };
+
+// export const addLike = id => async dispatch => {
+//   const res = await axios.put(`/api/posts/like/${id}`);
+//   dispatch({ type: UPDATE_LIKES, payload: { id, likes: res.data } });
+// };

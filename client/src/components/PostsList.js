@@ -10,23 +10,26 @@ class PostsList extends Component {
     return this.props.posts.map(post => {
       return (
         <div className="content" key={post._id}>
-          <h4 className="title">{post.title}</h4>
+          <h4 className="title">
+            <a className="title" href="/api/posts:id">
+              {post.title}
+            </a>
+            <span className="action">{post.category}</span>
+          </h4>
 
           <div className="text">{post.text}</div>
-          <span className="action">
-            <i className="white thumbs up outline icon" />
+          <a className="comments" href="/api/posts/:id">
+            {post.comments.length} comments
+          </a>
+          <span className="action comments">
+            {post.likes.length} <i class="far fa-heart" />
           </span>
-          <span className="action">
-            <i className="white thumbs down outline icon" />
+
+          <span className="action ">
+            <i class="far fa-thumbs-up" />
           </span>
-          <span className="action">
-            <i className="grey edit outline icon" />
-          </span>
-          <span className="action">
-            <i className="grey trash alternate outline icon" />
-          </span>
-          <span className="action">
-            <i className="grey comment outline icon" />
+          <span className="action ">
+            <i class="far fa-thumbs-down" />
           </span>
         </div>
       );

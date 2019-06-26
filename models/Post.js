@@ -7,6 +7,11 @@ const postSchema = new Schema({
   avatar: { type: String },
   text: { type: String, required: true },
   category: { type: String, required: true },
+  likes: [
+    {
+      user: { type: Schema.Types.ObjectId, ref: 'Users' }
+    }
+  ],
   comments: [
     {
       post: { type: Schema.Types.ObjectId, ref: 'Posts' },
