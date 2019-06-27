@@ -70,7 +70,7 @@ module.exports = app => {
     }
   });
 
-  app.put('/api/posts/:id/like', requireLogin, async (req, res) => {
+  app.put('/api/posts/:id/unlike', requireLogin, async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
       if (

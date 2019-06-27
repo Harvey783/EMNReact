@@ -22,14 +22,14 @@ class PostsList extends Component {
             {post.comments.length} comments
           </a>
           <span className="action comments">
-            {post.likes.length} <i class="far fa-heart" />
+            {post.likes.length} <i className="far fa-heart" />
           </span>
 
           <span className="action ">
-            <i class="far fa-thumbs-up" />
+            <i className="far fa-thumbs-up" />
           </span>
           <span className="action ">
-            <i class="far fa-thumbs-down" />
+            <i className="far fa-thumbs-down" />
           </span>
         </div>
       );
