@@ -11,18 +11,18 @@ class PostsList extends Component {
       return (
         <div className="content" key={post._id}>
           <h4 className="title">
-            <a className="title" href="/api/posts:id">
+            <a className="title" href="/posts/:id">
               {post.title}
             </a>
-            <span className="action">{post.category}</span>
+            <span className="action">{post._id}</span>
           </h4>
 
           <div className="text">{post.text}</div>
-          <a className="comments" href="/api/posts/:id">
+          <a className="comments" href="/posts/:id">
             {post.comments.length} comments
           </a>
-          <span className="action comments">
-            {post.likes.length} <i className="far fa-heart" />
+          <span className="action">
+            {post.likes.length} <i class="far fa-heart" />
           </span>
 
           <span className="action ">
