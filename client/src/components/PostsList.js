@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getPosts } from '../actions';
 
 class PostsList extends Component {
@@ -11,18 +12,24 @@ class PostsList extends Component {
       return (
         <div className="content" key={post._id}>
           <h4 className="title">
-            <a className="title" href="/posts/:id">
+            <Link className="title" to={`/posts/${post._id}`}>
+              {post.title}
+            </Link>
+            <span className="action">{post._id}</span>
+          </h4>
+          {/* <h4 className="title">
+            <a className="title" href={`/posts/${post._id}`}>
               {post.title}
             </a>
             <span className="action">{post._id}</span>
-          </h4>
+          </h4> */}
 
           <div className="text">{post.text}</div>
           <a className="comments" href="/posts/:id">
             {post.comments.length} comments
           </a>
           <span className="action">
-            {post.likes.length} <i class="far fa-heart" />
+            {post.likes.length} <i className="far fa-heart" />
           </span>
 
           <span className="action ">
@@ -49,10 +56,6 @@ const mapStateToProps = state => {
     posts: Object.values(state.posts)
   };
 };
-
-// const mapStateToProps = state => ({
-//   post: state.post
-// });
 
 export default connect(
   mapStateToProps,

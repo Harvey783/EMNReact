@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
 import PostsList from './PostsList';
+import Post from './Post';
 
 class App extends Component {
   componentDidMount() {
@@ -16,6 +17,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path="/" exact component={PostsList} />
+          <Route path="posts/:id" exact component={Post} />
         </Switch>
       </Router>
     );
