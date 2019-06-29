@@ -4,7 +4,8 @@ import { getPost } from '../actions';
 
 class Post extends React.Component {
   componentDidMount() {
-    this.props.getPost(this.props.match.params._id);
+    this.props.getPost(this.props.match.params.id);
+    console.log(this.props);
   }
 
   render() {
@@ -13,7 +14,7 @@ class Post extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return { post: state.posts[ownProps.match.params._id] };
+  return { post: state.posts[ownProps.match.params.id] };
 };
 
 export default connect(

@@ -26,9 +26,12 @@ class Header extends Component {
     return (
       <nav id="navbar">
         <h5 className="logo">
-          <span className="text-primary">Reddit</span>
+          <a href="/">
+            <span className="text-primary">Reddit</span>
+          </a>
           Lite
         </h5>
+
         <ul>{this.renderContent()}</ul>
       </nav>
     );

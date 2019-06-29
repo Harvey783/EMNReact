@@ -9,6 +9,7 @@ class PostsList extends Component {
   }
   renderPosts() {
     return this.props.posts.map(post => {
+      console.log(this.props.posts);
       return (
         <div className="content" key={post._id}>
           <h4 className="title">
@@ -17,12 +18,6 @@ class PostsList extends Component {
             </Link>
             <span className="action">{post._id}</span>
           </h4>
-          {/* <h4 className="title">
-            <a className="title" href={`/posts/${post._id}`}>
-              {post.title}
-            </a>
-            <span className="action">{post._id}</span>
-          </h4> */}
 
           <div className="text">{post.text}</div>
           <a className="comments" href="/posts/:id">
