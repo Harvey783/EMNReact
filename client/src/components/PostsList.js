@@ -9,7 +9,6 @@ class PostsList extends Component {
   }
   renderPosts() {
     return this.props.posts.map(post => {
-      console.log(this.props.posts);
       return (
         <div className="content" key={post._id}>
           <h4 className="title">

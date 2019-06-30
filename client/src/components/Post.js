@@ -5,7 +5,6 @@ import { getPost } from '../actions';
 class Post extends React.Component {
   componentDidMount() {
     this.props.getPost(this.props.match.params.id);
-    console.log(this.props);
   }
 
   render() {
