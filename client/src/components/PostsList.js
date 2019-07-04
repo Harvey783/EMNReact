@@ -15,7 +15,7 @@ class PostsList extends Component {
             <Link className="title" to={`/posts/${post._id}`}>
               {post.title}
             </Link>
-            <span className="action">{post._id}</span>
+            <span className="action">{post.category}</span>
           </h4>
 
           <div className="text">{post.text}</div>

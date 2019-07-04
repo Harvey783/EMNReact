@@ -6,7 +6,7 @@ export default (state = {}, action) => {
     case GET_POSTS:
       return { ...state, ..._.mapKeys(action.payload, '_id') };
     case GET_POST:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state.post, [action.payload._id]: action.payload };
     default:
       return state;
   }

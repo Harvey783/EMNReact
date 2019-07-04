@@ -11,8 +11,8 @@ export const getPosts = () => async dispatch => {
   dispatch({ type: GET_POSTS, payload: res.data });
 };
 
-export const getPost = id => async dispatch => {
-  const res = await axios.get(`/api/posts/${id}`);
+export const getPost = _id => async dispatch => {
+  const res = await axios.get(`/api/posts/${_id}`);
   dispatch({ type: GET_POST, payload: res.data });
 };
 
