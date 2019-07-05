@@ -17,6 +17,7 @@ class PostsList extends Component {
             <div className="likes">{post.likes.length}</div>
             <i className="fas fa-arrow-down fa-xs" />
           </div>
+          <img className="avatar" src={post.avatar} alt="avatar" />
           <div className="content">
             <h4 className="title">
               <Link className="title" to={`/posts/${post._id}`}>

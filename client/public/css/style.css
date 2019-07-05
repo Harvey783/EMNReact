@@ -26,7 +26,7 @@
 
 .logo {
   margin-top: 4px;
-  align: middle;
+  margin-left: 15px;
 }
 
 #navbar span {
@@ -36,7 +36,7 @@
 }
 
 #navbar h5 {
-  font-size: 15px;
+  font-size: 20px;
 }
 
 #navbar ul {
@@ -89,6 +89,7 @@ body {
   border-bottom: 1px solid #eee;
   padding-bottom: 20px;
   flex: 1;
+  margin-left: 5px;
 }
 
 .title {
@@ -133,8 +134,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 10px;
-  margin-top: 10px;
+  margin-right: 5px;
+  margin-top: 16.5px;
 }
 
 .likes {
@@ -144,10 +145,9 @@ body {
 
 .posts {
   max-width: 960px;
-  padding-top: 20px;
+  padding-top: 30px;
   list-style: none;
-
-  margin: 0 auto;
+  margin: 0 15px;
 }
 
 .post {
@@ -157,14 +157,8 @@ body {
   padding-bottom: 0;
 }
 
-.avatar {
-  width: 64px;
-  height: 56px;
-  margin: 0 10px;
-}
-
 .avatar.default {
-  background: url('//b.thumbs.redditmedia.com/XWINAyK1fHqmkcRwoZGwsASV7l6fl_cRG_5u_o9Dwqk.png') -143px -80px;
+  background: url('https://www.dropbox.com/s/9ie9kin4plpojz0/avatar-default.png?dl=0') -75px -75px;
 }
 
 .action.submitted {
@@ -183,4 +177,10 @@ body {
 
 .fa-xs {
   font-size: 0.5em;
+}
+
+.avatar {
+  width: 60px;
+  height: 55px;
+  margin: 10px;
 }
