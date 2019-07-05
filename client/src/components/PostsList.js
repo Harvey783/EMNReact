@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getPosts } from '../actions';
+import moment from 'moment';
 
 class PostsList extends Component {
   componentDidMount() {
@@ -31,6 +32,9 @@ class PostsList extends Component {
           </span>
           <span className="action ">
             <i className="far fa-thumbs-down" />
+          </span>
+          <span className="action ">
+            Submitted {moment.utc(post.created).format('DD-MM-YY')}
           </span>
         </div>
       );
