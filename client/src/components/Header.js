@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   renderContent() {
@@ -15,7 +16,9 @@ class Header extends Component {
       default:
         return (
           <li>
-            <a href="/posts">New Post</a>
+            <Link className="title" to={`/posts/new`}>
+              New Post
+            </Link>
             <a href="/api/logout">Sign Out</a>
           </li>
         );

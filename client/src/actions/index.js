@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, GET_POSTS, GET_POST } from './types';
+import { FETCH_USER, GET_POSTS, GET_POST, CREATE_POST } from './types';
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get('/api/current-user');
@@ -14,6 +14,11 @@ export const getPosts = () => async dispatch => {
 export const getPost = _id => async dispatch => {
   const res = await axios.get(`/api/posts/${_id}`);
   dispatch({ type: GET_POST, payload: res.data });
+};
+
+export const createPost = formValues => async dispatch => {
+  const res = await axios.post('/api/posts', { ...formValues });
+  dispatch({ type: CREATE_POST, payload: res.data });
 };
 
 // export const addLike = id => async dispatch => {
