@@ -25,12 +25,18 @@
 }
 
 .logo {
-  margin-top: 10px;
+  margin-top: 4px;
   align: middle;
 }
 
 #navbar span {
-  color: #dc9b9b;
+  color: white;
+  font-size: 18px;
+  -webkit-text-stroke: 1px #e21f03;
+}
+
+#navbar h5 {
+  font-size: 15px;
 }
 
 #navbar ul {
@@ -43,7 +49,7 @@
   color: #fff;
   padding: 0.75rem;
   margin: 0 0.25rem;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 #navbar ul li a:hover {
@@ -70,7 +76,7 @@ body {
 
 .likes,
 .likes:hover {
-  color: firebrick;
+  color: rgb(179, 48, 48);
   cursor: default;
 }
 
@@ -97,7 +103,8 @@ body {
   font-weight: normal;
   text-decoration: none;
   margin-bottom: 5px;
-  font-size: 15px;
+  font-size: 14px;
+  color: rgb(32, 29, 29);
 }
 
 .container.header-title {
@@ -111,5 +118,69 @@ body {
 .comments {
   color: #777;
   text-decoration: none;
+  font-size: 13px;
+  font-weight: 250;
+}
+
+.author {
+  color: #777;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.voting {
+  color: rgb(145, 144, 144);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.likes {
+  margin: 5px 0;
   font-size: 14px;
+}
+
+.posts {
+  max-width: 960px;
+  padding-top: 20px;
+  list-style: none;
+
+  margin: 0 auto;
+}
+
+.post {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 0;
+}
+
+.avatar {
+  width: 64px;
+  height: 56px;
+  margin: 0 10px;
+}
+
+.avatar.default {
+  background: url('//b.thumbs.redditmedia.com/XWINAyK1fHqmkcRwoZGwsASV7l6fl_cRG_5u_o9Dwqk.png') -143px -80px;
+}
+
+.action.submitted {
+  font-size: 11.5px;
+  cursor: default;
+}
+
+.action.category {
+  font-size: 15px;
+  cursor: default;
+}
+
+.voting i {
+  cursor: pointer;
+}
+
+.fa-xs {
+  font-size: 0.5em;
 }

@@ -11,31 +11,29 @@ class PostsList extends Component {
   renderPosts() {
     return this.props.posts.map(post => {
       return (
-        <div className="content" key={post._id}>
-          <h4 className="title">
-            <Link className="title" to={`/posts/${post._id}`}>
-              {post.title}
-            </Link>
-            <span className="action">{post.category}</span>
-          </h4>
+        <div className="post" key={post._id}>
+          <div className="voting">
+            <i className="fas fa-arrow-up fa-xs" />
+            <div className="likes">{post.likes.length}</div>
+            <i className="fas fa-arrow-down fa-xs" />
+          </div>
+          <div className="content">
+            <h4 className="title">
+              <Link className="title" to={`/posts/${post._id}`}>
+                {post.title}
+              </Link>
+              <span className="action category">{post.category}</span>
+            </h4>
+            <div className="text">{post.text}</div>
+            <a className="comments" href="/posts/:id">
+              {post.comments.length} comments
+            </a>
 
-          <div className="text">{post.text}</div>
-          <a className="comments" href="/posts/:id">
-            {post.comments.length} comments
-          </a>
-          <span className="action">
-            {post.likes.length} <i className="far fa-heart" />
-          </span>
-
-          <span className="action ">
-            <i className="far fa-thumbs-up" />
-          </span>
-          <span className="action ">
-            <i className="far fa-thumbs-down" />
-          </span>
-          <span className="action ">
-            Submitted {moment.utc(post.created).format('DD-MM-YY')}
-          </span>
+            <span className="action submitted ">
+              Posted by {post.author} on{' '}
+              {moment.utc(post.created).format('DD-MM-YY')}{' '}
+            </span>
+          </div>
         </div>
       );
     });
@@ -43,7 +41,7 @@ class PostsList extends Component {
 
   render() {
     return (
-      <div className="content-top">
+      <div className="posts">
         <div>{this.renderPosts()}</div>
       </div>
     );
