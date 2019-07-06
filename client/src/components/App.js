@@ -15,12 +15,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Header />
-        <Switch>
-          <Route path="/" exact component={PostsList} />
-          <Route path="/posts/new" exact component={PostCreate} />
-          <Route path="/posts/:id" exact component={Post} />
-        </Switch>
+        <div>
+          <Header />
+          <Switch>
+            <Route path="/" exact component={PostsList} />
+            <Route path="/posts/new" exact component={PostCreate} />
+            <Route path="/posts/:id" exact component={Post} />
+          </Switch>
+        </div>
       </Router>
     );
   }
