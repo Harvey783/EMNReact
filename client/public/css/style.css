@@ -139,6 +139,7 @@ body {
 }
 
 .likes {
+  color: #777;
   margin: 5px 0;
   font-size: 14px;
 }

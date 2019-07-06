@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getPost } from '../actions';
+import moment from 'moment';
 
 class Post extends React.Component {
   constructor(props) {
@@ -40,6 +41,10 @@ class Post extends React.Component {
 
         <span className="action ">
           <i className="far fa-thumbs-down" />
+        </span>
+        <span className="action submitted ">
+          Posted by {this.props.post.author} on{' '}
+          {moment.utc(this.props.post.created).format('DD-MM-YY')}{' '}
         </span>
       </div>
     );
