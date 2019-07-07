@@ -2,10 +2,12 @@ import React from 'react';
 import PostForm from './PostForm';
 import { connect } from 'react-redux';
 import { createPost } from '../actions';
+import { withRouter } from 'react-router-dom';
 
 class PostCreate extends React.Component {
-  onSubmit = formValues => {
-    this.props.createPost(formValues);
+  onSubmit = (formValues, history) => {
+    console.log(this.props.history);
+    this.props.createPost(formValues, this.props.history);
   };
 
   render() {
@@ -18,7 +20,11 @@ class PostCreate extends React.Component {
   }
 }
 
+function mapStateToProps(state) {
+  return { formValues: state.form };
+}
+
 export default connect(
-  null,
+  mapStateToProps,
   { createPost }
-)(PostCreate);
+)(withRouter(PostCreate));

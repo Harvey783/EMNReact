@@ -13,15 +13,23 @@ export const getPosts = () => async dispatch => {
 
 export const getPost = _id => async dispatch => {
   const res = await axios.get(`/api/posts/${_id}`);
+
   dispatch({ type: GET_POST, payload: res.data });
 };
 
-export const createPost = formValues => async dispatch => {
+export const createPost = (formValues, history) => async dispatch => {
   const res = await axios.post('/api/posts', { ...formValues });
   dispatch({ type: CREATE_POST, payload: res.data });
+  history.push('/');
 };
 
 // export const addLike = id => async dispatch => {
 //   const res = await axios.put(`/api/posts/like/${id}`);
 //   dispatch({ type: UPDATE_LIKES, payload: { id, likes: res.data } });
+// };
+
+// export const addPost = formData => async dispatch => {
+//   const config = {headers: {'Content-Type':'application/json'}};
+//   const res = await axios.post('/api/posts', formData, config);
+//   dispatch({type: ADD_POST,payload: res.data});
 // };

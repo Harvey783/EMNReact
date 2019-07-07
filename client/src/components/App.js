@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
@@ -14,7 +14,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div>
           <Header />
           <Switch>
@@ -23,7 +23,7 @@ class App extends Component {
             <Route path="/posts/:id" exact component={Post} />
           </Switch>
         </div>
-      </Router>
+      </BrowserRouter>
     );
   }
 }
