@@ -30,9 +30,9 @@
 }
 
 #navbar span {
-  color: white;
+  color: rgb(133, 11, 11);
   font-size: 18px;
-  -webkit-text-stroke: 1px #e21f03;
+  -webkit-text-stroke: 2px #b3543a;
 }
 
 #navbar h5 {
@@ -43,12 +43,13 @@
   display: flex;
   align-items: center;
   list-style: none;
+  margin-bottom: 0;
 }
 
 #navbar ul li a {
   color: #fff;
   padding: 0.75rem;
-  margin: 0 0.25rem;
+  margin: 0;
   font-size: 13px;
 }
 

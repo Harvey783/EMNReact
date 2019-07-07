@@ -35,7 +35,7 @@ class Header extends Component {
           Lite
         </h5>
 
-        <ul>{this.renderContent()}</ul>
+        <ul className="header">{this.renderContent()}</ul>
       </nav>
     );
   }
