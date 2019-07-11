@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { createPost } from '../actions';
 
@@ -18,12 +18,7 @@ class PostForm extends React.Component {
     this.props.onSubmit(formValues);
   };
 
-  handleClick = () => {
-    this.props.history.push('/');
-  };
-
   render() {
-    console.log(this.props.history);
     return (
       <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
         <Field name="title" component={this.renderInput} label="Enter Title" />
@@ -33,27 +28,15 @@ class PostForm extends React.Component {
           component={this.renderInput}
           label="Enter Category"
         />
-        <button onClick={this.handleClick} type="submit" />
+        <button type="submit">Submit</button>
       </form>
     );
   }
 }
 
-// function mapStateToProps(state) {
-//   console.log(state.form.postForm);
-//   return { formValues: state.form.postForm };
-// }
-// export default reduxForm({
-//   form: 'postForm'
-// })(PostForm);
-
-// export default connect(mapStateToProps)(
-//   reduxForm({
-//     form: 'postForm'
-//   })(withRouter(PostForm))
-// );
-
-export default reduxForm({
-  form: 'postForm',
-  createPost
-})(withRouter(PostForm));
+export default connect(null)(
+  reduxForm({
+    form: 'postForm',
+    createPost
+  })(withRouter(PostForm))
+);
