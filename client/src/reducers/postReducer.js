@@ -15,12 +15,7 @@ export default (state = {}, action) => {
     case CREATE_POST:
       return { ...state, [action.payload.id]: action.payload };
     case UPDATE_LIKES:
-      return {
-        ...state,
-        posts: state.posts.map(post =>
-          post._id === payload.id ? { ...post, likes: payload.likes } : post
-        )
-      };
+      return { ...state, [action.payload.id]: action.payload };
     default:
       return state;
   }

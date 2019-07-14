@@ -1,21 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getPosts } from '../actions';
+import { getPosts, addLike, removeLike } from '../actions';
 import moment from 'moment';
 
 class PostsList extends Component {
-  componentDidMount() {
-    this.props.getPosts();
+  constructor(props) {
+    super(props);
+    this.state = {
+      loaded: false,
+      posts: {}
+    };
   }
+
+  async componentDidMount() {
+    await this.props.getPosts();
+    await this.setState({ loaded: true });
+  }
+
   renderPosts() {
     return this.props.posts.map(post => {
       return (
         <div className="post" key={post._id}>
           <div className="voting">
-            <i className="fas fa-arrow-up fa-xs" />
+            <i
+              onClick={() => addLike(post)}
+              className="fas fa-arrow-up fa-xs"
+            />
             <div className="likes">{post.likes.length}</div>
-            <i className="fas fa-arrow-down fa-xs" />
+            <i
+              onClick={() => removeLike(post)}
+              className="fas fa-arrow-down fa-xs"
+            />
           </div>
           <img className="avatar" src={post.avatar} alt="avatar" />
           <div className="content">
@@ -32,7 +48,7 @@ class PostsList extends Component {
 
             <span className="action submitted ">
               Posted by {post.author} on{' '}
-              {moment.utc(post.created).format('DD-MM-YY')}{' '}
+              {moment.utc(post.created).format('M-D-YY')}{' '}
             </span>
           </div>
         </div>
@@ -43,18 +59,19 @@ class PostsList extends Component {
   render() {
     return (
       <div className="posts">
-        <div>{this.renderPosts()}</div>
+        <div>{this.state.loaded && this.renderPosts()}</div>
       </div>
     );
   }
 }
 const mapStateToProps = state => {
   return {
-    posts: Object.values(state.posts)
+    posts: Object.values(state.posts),
+    auth: state.auth
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getPosts }
+  { getPosts, addLike, removeLike }
 )(PostsList);

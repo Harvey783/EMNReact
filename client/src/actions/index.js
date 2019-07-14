@@ -29,12 +29,12 @@ export const createPost = (formValues, history) => async dispatch => {
   history.push('/');
 };
 
-export const addLike = id => async dispatch => {
-  const res = await axios.put(`/api/posts/like/${id}`);
-  dispatch({ type: UPDATE_LIKES, payload: { id, likes: res.data } });
+export const addLike = _id => async dispatch => {
+  const res = await axios.put(`/api/posts/like/${_id}`);
+  dispatch({ type: UPDATE_LIKES, payload: res.data });
 };
 
 export const removeLike = id => async dispatch => {
   const res = await axios.put(`/api/posts/unlike/${id}`);
-  dispatch({ type: UPDATE_LIKES, payload: { id, likes: res.data } });
+  dispatch({ type: UPDATE_LIKES, payload: res.data });
 };

@@ -19,33 +19,36 @@ class Post extends React.Component {
 
   renderPost() {
     return (
-      <div className="content">
-        <h4 className="title">
-          {this.props.post.title}
-          <span className="action">{this.props.post.category}</span>
-        </h4>
+      <div className="post">
+        <img className="avatar" src={this.props.post.avatar} alt="avatar" />
+        <div className="content">
+          <h4 className="title">
+            {this.props.post.title}
+            <span className="action">{this.props.post.category}</span>
+          </h4>
 
-        <div className="text">{this.props.post.text}</div>
+          <div className="text">{this.props.post.text}</div>
 
-        <a className="comments" href="/posts/:id">
-          {this.props.post.comments.length} comments
-        </a>
+          <a className="comments" href="/posts/:id">
+            {this.props.post.comments.length} comments
+          </a>
 
-        <span className="action">
-          {this.props.post.likes.length} <i className="far fa-heart" />
-        </span>
+          <span className="action">
+            {this.props.post.likes.length} <i className="far fa-heart" />
+          </span>
 
-        <span className="action ">
-          <i className="far fa-thumbs-up" />
-        </span>
+          <span className="action ">
+            <i className="far fa-thumbs-up" />
+          </span>
 
-        <span className="action ">
-          <i className="far fa-thumbs-down" />
-        </span>
-        <span className="action submitted ">
-          Posted by {this.props.post.author} on{' '}
-          {moment.utc(this.props.post.created).format('DD-MM-YY')}{' '}
-        </span>
+          <span className="action ">
+            <i className="far fa-thumbs-down" />
+          </span>
+          <span className="action submitted ">
+            Posted by {this.props.post.author} on{' '}
+            {moment.utc(this.props.post.created).format('M-D-YY')}{' '}
+          </span>
+        </div>
       </div>
     );
   }
@@ -60,7 +63,10 @@ class Post extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return { post: state.posts[ownProps.match.params.id] };
+  return {
+    post: state.posts[ownProps.match.params.id],
+    auth: state.auth
+  };
 };
 
 export default connect(
