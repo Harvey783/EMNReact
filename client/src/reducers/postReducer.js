@@ -1,4 +1,9 @@
-import { GET_POSTS, GET_POST, CREATE_POST } from '../actions/types';
+import {
+  GET_POSTS,
+  GET_POST,
+  CREATE_POST,
+  UPDATE_LIKES
+} from '../actions/types';
 import _ from 'lodash';
 
 export default (state = {}, action) => {
@@ -9,6 +14,13 @@ export default (state = {}, action) => {
       return { ...state.post, [action.payload._id]: action.payload };
     case CREATE_POST:
       return { ...state, [action.payload.id]: action.payload };
+    case UPDATE_LIKES:
+      return {
+        ...state,
+        posts: state.posts.map(post =>
+          post._id === payload.id ? { ...post, likes: payload.likes } : post
+        )
+      };
     default:
       return state;
   }
