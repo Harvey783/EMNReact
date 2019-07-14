@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { FETCH_USER, GET_POSTS, GET_POST, CREATE_POST } from './types';
+import {
+  FETCH_USER,
+  GET_POSTS,
+  GET_POST,
+  CREATE_POST,
+  UPDATE_LIKES
+} from './types';
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get('/api/current-user');
