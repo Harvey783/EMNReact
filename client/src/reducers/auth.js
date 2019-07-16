@@ -1,37 +1,18 @@
-import { USER_LOADED } from '../actions/types';
-
-// export default function(state = null, action) {
-//   switch (action.type) {
-//     case FETCH_USER:
-//       return action.payload || false;
-//     default:
-//       return state;
-//   }
-// }
-
+import { SET_USER } from '../actions/types';
+import { isEmpty } from '../components/validators';
 const initialState = {
-  isAuthenticated: null,
-  loading: true,
-  user: null
+  isAuthenticated: false,
+  loading: false,
+  user: {}
 };
 
 export default function(state = initialState, action) {
-  const { type, payload } = action;
-
-  switch (type) {
-    // case FETCH_USER:
-    //   return {
-    //     ...state,
-    //     isAuthenticated: true,
-    //     loading: false,
-    //     user: payload
-    //   };
-    case USER_LOADED:
+  switch (action.type) {
+    case SET_USER:
       return {
-        ...state,
-        isAuthenticated: true,
-        loading: false,
-        user: payload
+        isAuthenticated: !isEmpty(action.payload),
+        user: action.payload,
+        loading: false
       };
     default:
       return state;

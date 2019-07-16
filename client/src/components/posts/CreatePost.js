@@ -18,36 +18,34 @@ const CreatePost = ({ createPost, history }) => {
 
   return (
     <Fragment>
-      <h1 className="large text-primary">Add Post</h1>
-
       <form
-        className="form"
+        className="post-form"
         onSubmit={e => {
           e.preventDefault();
           createPost(formData, history);
         }}
       >
-        <div className="form-group">
+        <div className="post-form-group">
           <input
             type="text"
-            placeholder="* Title"
+            placeholder="Title"
             name="title"
             value={title}
             onChange={e => onChange(e)}
             required
           />
         </div>
-        <div className="form-group">
+        <div className="post-form-group">
           <input
             type="text"
-            placeholder="..."
+            placeholder="Text"
             name="text"
             value={text}
             onChange={e => onChange(e)}
             required
           />
         </div>
-        <div className="form-group">
+        <div className="post-form-group">
           <input
             type="text"
             placeholder="Category"
@@ -57,7 +55,7 @@ const CreatePost = ({ createPost, history }) => {
           />
         </div>
 
-        <input type="submit" className="btn btn-primary my-1" />
+        <input type="submit" className="btn btn-dark my-1" />
         <Link className="btn btn-light my-1" to="/">
           Go Back
         </Link>

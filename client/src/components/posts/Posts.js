@@ -11,11 +11,13 @@ const Posts = ({ getPosts, post: { posts } }) => {
 
   return (
     <Fragment>
-      {posts.map(post => (
-        <div className="post">
-          <PostItem key={post._id} post={post} />
-        </div>
-      ))}
+      <div>
+        {posts.map(post => (
+          <div className="post">
+            <PostItem key={post._id} post={post} />
+          </div>
+        ))}
+      </div>
     </Fragment>
   );
 };

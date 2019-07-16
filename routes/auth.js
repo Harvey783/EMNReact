@@ -1,10 +1,9 @@
 const passport = require('passport');
 const router = require('express').Router();
 
-router.get(
-  '/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
-);
+const googleOpts = { scope: ['profile', 'email'], prompt: 'select_account' };
+
+router.get('/google', passport.authenticate('google', googleOpts));
 
 router.get('/google/callback', passport.authenticate('google'), (req, res) => {
   res.redirect('/');

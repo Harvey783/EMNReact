@@ -10,6 +10,7 @@ router.get('/logout', (req, res) => {
 });
 
 router.get('/current-user', (req, res) => {
+  if (!req.user) return res.send({});
   res.send(req.user);
 });
 
@@ -30,7 +31,7 @@ router.post('/posts', requireLogin, async (req, res) => {
 });
 
 router.get('/posts', async (req, res) => {
-  const posts = await Post.find().sort({ date: -1 });
+  const posts = await Post.find().sort('-date');
   res.json(posts);
 });
 

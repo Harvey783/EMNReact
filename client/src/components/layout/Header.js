@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { logoutUser } from '../../actions/index';
 
-const Header = ({ auth: { isAuthenticated, loading } }) => {
+const Header = ({ auth, logoutUser }) => {
   const authLinks = (
     <ul className="header">
       <li>
@@ -12,15 +12,16 @@ const Header = ({ auth: { isAuthenticated, loading } }) => {
         </Link>
       </li>
       <li>
-        <Link to="/logout">Logout</Link>
+        <Link className="title" onClick={logoutUser}>
+          Logout
+        </Link>
       </li>
     </ul>
   );
-
-  const guestLinks = (
+  const publicLinks = (
     <ul className="header">
       <li>
-        <Link to="/auth/google">Login</Link>
+        <a href="/auth/google">Login with Google</a>
       </li>
     </ul>
   );
@@ -33,22 +34,17 @@ const Header = ({ auth: { isAuthenticated, loading } }) => {
         </Link>
         Lite
       </h5>
-      {!loading && (
-        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
-      )}
+
+      <Fragment>{auth.isAuthenticated ? authLinks : publicLinks}</Fragment>
     </nav>
   );
 };
 
-Header.propTypes = {
-  auth: PropTypes.object.isRequired
-};
+const mapStateToProps = ({ auth }) => ({ auth });
 
-const mapStateToProps = state => ({
-  auth: state.auth
-});
+const mapDispatchToProps = { logoutUser };
 
 export default connect(
   mapStateToProps,
-  {}
+  mapDispatchToProps
 )(Header);

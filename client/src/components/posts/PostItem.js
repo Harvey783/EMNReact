@@ -1,17 +1,19 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { addLike, removeLike } from '../../actions/index';
 import moment from 'moment';
 
 const PostItem = ({
+  addLike,
+  removeLike,
   post: { _id, text, title, category, comments, author, date, likes, avatar }
 }) => (
   <Fragment>
     <div className="voting">
-      <i className="fas fa-arrow-up fa-xs" />
+      <i onClick={() => addLike(_id)} className="fas fa-arrow-up fa-xs" />
       <div className="likes">{likes.length}</div>
-      <i className="fas fa-arrow-down fa-xs" />
+      <i onClick={() => removeLike(_id)} className="fas fa-arrow-down fa-xs" />
     </div>
     <img className="avatar" src={avatar} alt="avatar" />
     <div className="content">
@@ -32,16 +34,11 @@ const PostItem = ({
   </Fragment>
 );
 
-PostItem.propTypes = {
-  post: PropTypes.object.isRequired,
-  auth: PropTypes.object.isRequired
-};
-
 const mapStateToProps = state => ({
   auth: state.auth
 });
 
 export default connect(
   mapStateToProps,
-  {}
+  { addLike, removeLike }
 )(PostItem);

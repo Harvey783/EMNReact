@@ -186,3 +186,21 @@ body {
   height: 55px;
   margin: 10px;
 }
+
+.post-form .post-form-group {
+  margin: 1.2rem 0;
+}
+
+.post-form .post-form-text {
+  display: block;
+  margin-top: 0.3rem;
+  color: #888;
+}
+
+.post-form input[type='text'] {
+  display: block;
+  width: 100%;
+  padding: 0.4rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+}

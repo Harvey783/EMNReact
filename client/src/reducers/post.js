@@ -1,49 +1,48 @@
-// import { GET_POSTS, GET_POST } from '../actions/types';
-// import _ from 'lodash';
-
-// export default (state = {}, action) => {
-//   switch (action.type) {
-//     case GET_POSTS:
-//       return { ...state, ..._.mapKeys(action.payload, '_id') };
-//     case GET_POST:
-//       return { ...state, [action.payload.id]: action.payload };
-//     default:
-//       return state;
-//   }
-// };
-
-import { GET_POSTS, GET_POST, CREATE_POST } from '../actions/types';
+import {
+  GET_POSTS,
+  GET_POST,
+  CREATE_POST,
+  UPDATE_LIKES
+} from '../actions/types';
+import _ from 'lodash';
 
 const initialState = {
   posts: [],
   post: null,
-  loading: true,
-  error: {}
+  loading: true
 };
 
 export default function(state = initialState, action) {
-  const { type, payload } = action;
-
-  switch (type) {
+  switch (action.type) {
     case GET_POSTS:
       return {
         ...state,
-        posts: payload,
+        // ..._.mapKeys(action.payload, '_id'),
+        posts: action.payload,
         loading: false
       };
     case GET_POST:
       return {
         ...state,
-        post: payload,
+        post: action.payload,
         loading: false
       };
     case CREATE_POST:
       return {
         ...state,
-        posts: [payload, ...state.posts],
+        posts: [action.payload, ...state.posts],
         loading: false
       };
-
+    case UPDATE_LIKES:
+      return {
+        ...state,
+        posts: state.posts.map(post =>
+          post._id === action.payload.id
+            ? { ...post, likes: action.payload.likes }
+            : post
+        ),
+        loading: false
+      };
     default:
       return state;
   }
