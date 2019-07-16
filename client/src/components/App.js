@@ -1,34 +1,30 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
-import Header from './Header';
-import PostsList from './PostsList';
-import PostCreate from './PostCreate';
-import Post from './Post';
+import React, { Fragment, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { loadUser } from '../actions/index';
+import store from '../store';
+import Header from './layout/Header';
+import Posts from '../components/posts/Posts';
+import CreatePost from '../components/posts/CreatePost';
 
-class App extends Component {
-  componentDidMount() {
-    this.props.fetchUser();
-  }
+const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
 
-  render() {
-    return (
-      <BrowserRouter>
-        <div>
+  return (
+    <Provider store={store}>
+      <Router>
+        <Fragment>
           <Header />
           <Switch>
-            <Route path="/" exact component={PostsList} />
-            <Route path="/posts/new" exact component={PostCreate} />
-            <Route path="/posts/:id" exact component={Post} />
+            <Route exact path="/" component={Posts} />
+            <Route exact path="/posts/new" component={CreatePost} />
           </Switch>
-        </div>
-      </BrowserRouter>
-    );
-  }
-}
+        </Fragment>
+      </Router>
+    </Provider>
+  );
+};
 
-export default connect(
-  null,
-  actions
-)(App);
+export default App;

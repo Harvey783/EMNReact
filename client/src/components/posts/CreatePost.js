@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createPost } from '../actions';
-import { withRouter } from 'react-router-dom';
+import { createPost } from '../../actions/index';
 
-const newPostForm = ({ createProfile, history }) => {
+const CreatePost = ({ createPost, history }) => {
   const [formData, setFormData] = useState({
     title: '',
     text: '',
@@ -16,30 +16,35 @@ const newPostForm = ({ createProfile, history }) => {
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
-    e.preventDefault();
-    createProfile(formData, history);
-  };
-
   return (
-    <div className="post-form">
-      <form className="form my-1" onSubmit={e => onSubmit(e)}>
+    <Fragment>
+      <h1 className="large text-primary">Add Post</h1>
+
+      <form
+        className="form"
+        onSubmit={e => {
+          e.preventDefault();
+          createPost(formData, history);
+        }}
+      >
         <div className="form-group">
           <input
             type="text"
-            placeholder="Title"
+            placeholder="* Title"
             name="title"
             value={title}
             onChange={e => onChange(e)}
+            required
           />
         </div>
         <div className="form-group">
           <input
             type="text"
-            placeholder="Text"
+            placeholder="..."
             name="text"
             value={text}
             onChange={e => onChange(e)}
+            required
           />
         </div>
         <div className="form-group">
@@ -51,17 +56,21 @@ const newPostForm = ({ createProfile, history }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <input type="submit" className="btn btn-dark my-1" value="Submit" />
+
+        <input type="submit" className="btn btn-primary my-1" />
+        <Link className="btn btn-light my-1" to="/">
+          Go Back
+        </Link>
       </form>
-    </div>
+    </Fragment>
   );
 };
 
-PostForm.propTypes = {
+CreatePost.propTypes = {
   createPost: PropTypes.func.isRequired
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   { createPost }
-)(withRouter(newPostForm));
+)(withRouter(CreatePost));

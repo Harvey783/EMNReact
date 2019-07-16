@@ -4,7 +4,7 @@ import {
   GET_POSTS,
   GET_POST,
   CREATE_POST,
-  UPDATE_LIKES
+  USER_LOADED
 } from './types';
 
 export const fetchUser = () => async dispatch => {
@@ -12,29 +12,24 @@ export const fetchUser = () => async dispatch => {
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
+export const loadUser = () => async dispatch => {
+  const res = await axios.get('/api/current-user');
+  dispatch({ type: USER_LOADED, payload: res.data });
+};
+
 export const getPosts = () => async dispatch => {
   const res = await axios.get('/api/posts');
   dispatch({ type: GET_POSTS, payload: res.data });
 };
 
-export const getPost = _id => async dispatch => {
-  const res = await axios.get(`/api/posts/${_id}`);
-
+export const getPost = id => async dispatch => {
+  const res = await axios.get(`/api/posts/${id}`);
   dispatch({ type: GET_POST, payload: res.data });
 };
 
-export const createPost = (formValues, history) => async dispatch => {
-  const res = await axios.post('/api/posts', { ...formValues });
+export const createPost = (formData, history) => async dispatch => {
+  const config = { headers: { 'Content-Type': 'application/json' } };
+  const res = await axios.post('/api/posts', formData, config);
   dispatch({ type: CREATE_POST, payload: res.data });
   history.push('/');
-};
-
-export const addLike = _id => async dispatch => {
-  const res = await axios.put(`/api/posts/like/${_id}`);
-  dispatch({ type: UPDATE_LIKES, payload: res.data });
-};
-
-export const removeLike = id => async dispatch => {
-  const res = await axios.put(`/api/posts/unlike/${id}`);
-  dispatch({ type: UPDATE_LIKES, payload: res.data });
 };

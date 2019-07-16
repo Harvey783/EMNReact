@@ -7,5 +7,4 @@ const userSchema = new Schema({
   image: String
 });
 
-const User = mongoose.model('Users', userSchema);
-module.exports = User;
+module.exports = User = mongoose.model('user', userSchema);
