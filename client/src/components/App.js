@@ -5,6 +5,7 @@ import { getUser } from '../actions/index';
 import Header from './layout/Header';
 import Posts from '../components/posts/Posts';
 import CreatePost from '../components/posts/CreatePost';
+import Post from '../components/post/Post';
 
 const App = () => {
   useEffect(() => {
@@ -18,6 +19,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Posts} />
           <Route exact path="/posts/new" component={CreatePost} />>
+          <Route exact path="/posts/:id" component={Post} />>
         </Switch>
       </Fragment>
     </Router>

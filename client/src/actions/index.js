@@ -4,7 +4,9 @@ import {
   GET_POST,
   CREATE_POST,
   SET_USER,
-  UPDATE_LIKES
+  UPDATE_LIKES,
+  ADD_COMMENT,
+  DELETE_COMMENT
 } from './types';
 
 export const logoutUser = () => dispatch => {
@@ -42,4 +44,19 @@ export const addLike = id => async dispatch => {
 export const removeLike = id => async dispatch => {
   const res = await axios.put(`/api/posts/unlike/${id}`);
   dispatch({ type: UPDATE_LIKES, payload: { id, likes: res.data } });
+};
+
+export const addComment = (postId, formData) => async dispatch => {
+  const config = { headers: { 'Content-Type': 'application/json' } };
+  const res = await axios.post(
+    `/api/posts/comment/${postId}`,
+    formData,
+    config
+  );
+  dispatch({ type: ADD_COMMENT, payload: res.data });
+};
+
+export const deleteComment = (postId, commentId) => async dispatch => {
+  await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
+  dispatch({ type: DELETE_COMMENT, payload: commentId });
 };

@@ -6,3 +6,5 @@ export const USER_LOADED = 'USER_LOADED';
 export const SET_USER = 'SET_USER';
 export const UPDATE_LIKES = 'UPDATE_LIKES';
 export const LOGOUT_USER = 'LOGOUT_USER';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';

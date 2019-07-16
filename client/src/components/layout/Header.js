@@ -12,7 +12,7 @@ const Header = ({ auth, logoutUser }) => {
         </Link>
       </li>
       <li>
-        <Link className="title" onClick={logoutUser}>
+        <Link to="/" className="title" onClick={logoutUser}>
           Logout
         </Link>
       </li>
