@@ -13,9 +13,9 @@ const Posts = ({ getPosts, post: { posts } }) => {
     <Fragment>
       <div>
         {posts.map(post => (
-          <div className="post">
+          <Fragment>
             <PostItem key={post._id} post={post} />
-          </div>
+          </Fragment>
         ))}
       </div>
     </Fragment>

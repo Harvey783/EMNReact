@@ -204,3 +204,18 @@ body {
   font-size: 1.2rem;
   border: 1px solid #ccc;
 }
+
+.comment-title {
+  color: rgb(194, 153, 153);
+}
+
+.span-comment-title {
+  color: firebrick;
+}
+
+.comment-list {
+  max-width: 960px;
+  padding-top: 30px;
+  list-style: none;
+  margin: 0 15px;
+}

@@ -14,29 +14,38 @@ const PostItem = ({
   <Fragment>
     {showActions && (
       <Fragment>
-        <div className="voting">
-          <i onClick={() => addLike(_id)} className="fas fa-arrow-up fa-xs" />
-          <div className="likes">{likes.length}</div>
-          <i
-            onClick={() => removeLike(_id)}
-            className="fas fa-arrow-down fa-xs"
-          />
-        </div>
-        <img className="avatar" src={avatar} alt="avatar" />
-        <div className="content">
-          <h4 className="title">
-            <Link className="title" to={`/posts/${_id}`}>
-              {title}
-            </Link>
-            <span className="action category">{category}</span>
-          </h4>
-          <div className="text">{text}</div>
-          <a className="comments" href="/posts/:id">
-            {comments.length} comments
-          </a>
-          <span className="action submitted ">
-            Posted by {author} on {moment.utc(date).format('M-D-YY')}{' '}
-          </span>
+        <div className="post">
+          <img className="avatar" src={avatar} alt="avatar" />
+          <div className="content">
+            <h4 className="title">
+              <Link className="title" to={`/posts/${_id}`}>
+                {title}
+              </Link>
+              <span className="action category">{category}</span>
+            </h4>
+            <div className="text">{text}</div>
+            <a className="comments" href="/posts/:id">
+              {comments.length} comments
+            </a>
+            <span className="action " />
+            <span className="comments">{likes.length} likes</span>
+            <span className="action ">
+              <i
+                onClick={() => addLike(_id)}
+                className="far fa-thumbs-up fa-sm"
+              />
+            </span>
+            <span className="action ">
+              <i
+                onClick={() => removeLike(_id)}
+                className="far fa-thumbs-down fa-sm"
+              />
+            </span>
+            <span className="action " />
+            <span className="action submitted ">
+              Posted by {author} on {moment.utc(date).format('M-D-YY')}{' '}
+            </span>
+          </div>
         </div>
       </Fragment>
     )}
