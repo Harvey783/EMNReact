@@ -24,11 +24,11 @@ const PostItem = ({
               <span className="action category">{category}</span>
             </h4>
             <div className="text">{text}</div>
-            <a className="comments" href="/posts/:id">
+            <a className="action" href="/posts/:id">
               {comments.length} comments
             </a>
             <span className="action " />
-            <span className="comments">{likes.length} likes</span>
+            <span className="action">{likes.length} likes</span>
             <span className="action ">
               <i
                 onClick={() => addLike(_id)}
@@ -43,7 +43,7 @@ const PostItem = ({
             </span>
             <span className="action " />
             <span className="action submitted ">
-              Posted by {author} on {moment.utc(date).format('M-D-YY')}{' '}
+              Posted by {author} on {moment.utc(date).format('M-D-YY')}
             </span>
           </div>
         </div>

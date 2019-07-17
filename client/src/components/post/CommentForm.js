@@ -7,29 +7,45 @@ const CommentForm = ({ postId, addComment }) => {
   const [text, setText] = useState('');
 
   return (
-    <div>
-      <div>
-        <h5 className="comment-title">
-          Leave a <span className="span-comment-title">Comment</span>
-        </h5>
-      </div>
+    <div id="respond" class="clearfix">
+      <h3>
+        Leave a <span>Comment</span>
+      </h3>
 
       <form
-        className="comment-form"
+        class="clearfix"
+        action="#"
+        method="post"
+        id="commentform"
         onSubmit={e => {
           e.preventDefault();
           addComment(postId, { text });
           setText('');
         }}
       >
-        <div>
+        <div class="col_full">
           <textarea
             name="text"
             value={text}
             onChange={e => setText(e.target.value)}
+            cols="58"
+            rows="7"
+            tabindex="4"
+            class="sm-form-control"
           />
         </div>
-        <input type="submit" className="btn btn-dark my-1" />>
+        <div class="col_full nobottommargin">
+          <button
+            name="submit"
+            type="submit"
+            id="submit-button"
+            tabindex="5"
+            value="Submit"
+            class="button button-3d nomargin"
+          >
+            Submit Comment
+          </button>
+        </div>
       </form>
     </div>
   );

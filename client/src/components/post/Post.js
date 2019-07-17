@@ -18,11 +18,20 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
     <Fragment>
       <PostItem post={post} showActions={true} />
 
-      {post.comments.map(comment => (
-        <div className="comment-list">
-          <CommentItem key={comment._id} comment={comment} postId={post._id} />
-        </div>
-      ))}
+      <div id="comments" class="clearfix">
+        <h4 id="comments-title">Comments</h4>
+
+        <ol className="commentlist">
+          {post.comments.map(comment => (
+            <CommentItem
+              key={comment._id}
+              comment={comment}
+              postId={post._id}
+            />
+          ))}
+        </ol>
+      </div>
+
       <CommentForm postId={post._id} />
     </Fragment>
   );
