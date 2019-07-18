@@ -6,9 +6,15 @@ import { getPosts } from '../../actions/index';
 import CreatePost from './CreatePost';
 
 const Posts = ({ getPosts, post: { posts } }) => {
-  useEffect(() => {
-    getPosts();
-  }, [getPosts]);
+  useEffect(
+    () => {
+      console.log(posts);
+      getPosts();
+      console.log(posts);
+    },
+    [getPosts],
+    console.log(posts)
+  );
 
   return (
     <section id="content">

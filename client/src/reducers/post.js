@@ -10,7 +10,7 @@ import {
 const initialState = {
   posts: [],
   post: null,
-  loading: true
+  loading: false
 };
 
 export default function(state = initialState, action) {
