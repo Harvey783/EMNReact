@@ -15,25 +15,33 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
   return loading || post === null ? (
     <Spinner />
   ) : (
-    <Fragment>
-      <PostItem post={post} showActions={true} />
+    <section id="content">
+      <div class="content-wrap">
+        <div class="container clearfix">
+          <div class="postcontent nobottommargin clearfix">
+            <Fragment>
+              <PostItem post={post} showActions={true} />
 
-      <div id="comments" class="clearfix">
-        <h4 id="comments-title">Comments</h4>
+              <div id="comments" className="clearfix">
+                <h4 id="comments-title">Comments</h4>
 
-        <ol className="commentlist">
-          {post.comments.map(comment => (
-            <CommentItem
-              key={comment._id}
-              comment={comment}
-              postId={post._id}
-            />
-          ))}
-        </ol>
+                <ol className="commentlist">
+                  {post.comments.map(comment => (
+                    <CommentItem
+                      key={comment._id}
+                      comment={comment}
+                      postId={post._id}
+                    />
+                  ))}
+                </ol>
+              </div>
+
+              <CommentForm postId={post._id} />
+            </Fragment>
+          </div>
+        </div>
       </div>
-
-      <CommentForm postId={post._id} />
-    </Fragment>
+    </section>
   );
 };
 

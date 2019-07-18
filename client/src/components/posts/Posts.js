@@ -10,15 +10,22 @@ const Posts = ({ getPosts, post: { posts } }) => {
   }, [getPosts]);
 
   return (
-    <Fragment>
-      <div>
-        {posts.map(post => (
+    <section id="content">
+      <div class="content-wrap">
+        <div class="container clearfix">
           <Fragment>
-            <PostItem key={post._id} post={post} />
+            <div class="postcontent nobottommargin clearfix">
+              {posts.map(post => (
+                <Fragment>
+                  <PostItem key={post._id} post={post} />
+                </Fragment>
+              ))}
+            </div>
           </Fragment>
-        ))}
+          <div class="sidebar nobottommargin col_last clearfix" />
+        </div>
       </div>
-    </Fragment>
+    </section>
   );
 };
 

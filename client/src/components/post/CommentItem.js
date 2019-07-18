@@ -10,7 +10,7 @@ const CommentItem = ({ comment: { text, author, date } }) => (
         <div class="comment-author vcard">
           <span class="comment-avatar clearfix">
             <img
-              alt=""
+              alt="#"
               src="http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=60"
               class="avatar avatar-60 photo avatar-default"
               height="60"
