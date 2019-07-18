@@ -17,29 +17,26 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
   ) : (
     <section id="content">
       <div class="content-wrap">
-        <div class="container clearfix">
-          <div class="postcontent nobottommargin clearfix">
-            <Fragment>
-              <PostItem post={post} showActions={true} />
+        <Fragment>
+          <div className="col_two_third">
+            <PostItem post={post} showActions={true} />
 
-              <div id="comments" className="clearfix">
-                <h4 id="comments-title">Comments</h4>
-
-                <ol className="commentlist">
-                  {post.comments.map(comment => (
-                    <CommentItem
-                      key={comment._id}
-                      comment={comment}
-                      postId={post._id}
-                    />
-                  ))}
-                </ol>
-              </div>
-
-              <CommentForm postId={post._id} />
-            </Fragment>
+            <div id="comments" className="clearfix">
+              <ol className="commentlist">
+                {post.comments.map(comment => (
+                  <CommentItem
+                    key={comment._id}
+                    comment={comment}
+                    postId={post._id}
+                  />
+                ))}
+              </ol>
+            </div>
           </div>
-        </div>
+          <div className="col_one_third col_last">
+            <CommentForm postId={post._id} />
+          </div>
+        </Fragment>
       </div>
     </section>
   );

@@ -18,7 +18,6 @@ export default function(state = initialState, action) {
     case GET_POSTS:
       return {
         ...state,
-        // ..._.mapKeys(action.payload, '_id'),
         posts: action.payload,
         loading: false
       };

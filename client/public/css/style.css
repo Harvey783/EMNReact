@@ -1,17 +1,98 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-/* .container {
-width: 100%;
-    padding-right: 15px;
-    padding-left: 20px !important;
-    margin-right: auto;
-    margin-left: 20px !important;
+.contact-form input .field .bg-primary {
+	background-color: #7fa94f;
 }
 
-#header .header-wrap .container {
-  padding-left: 0px !important;
-  margin-left: 0px !important;
-} */
+.btn {
+  display: inline-block;
+  color: #fff;
+  background: #93cb52;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background: #7ab436;
+}
+
+.btn-dark {
+  background: rgb(94, 93, 93);
+  color: #fff;
+}
+
+.bg-dark {
+  background: #333;
+  color: #fff;
+}
+
+.m-heading {
+  font-size: 16px;
+	margin-bottom: .1rem;
+	margin-top: 0.75rem;
+	line-height: 1.1;
+	color: white
+}
+
+#comments {
+	position: relative;
+	margin-top: 5px;
+	margin-left: 60px;
+	border-top: 1px solid #EEE;
+}
+
+#contact {
+  display: flex;
+}
+
+.bg-primary {
+  background: #93cb52;
+  color: #fff;
+}
+
+#contact .map, #contact .contact-form {
+  flex: 1;
+}
+
+#contact .contact-form .form-group {
+  margin: 0.75rem;
+}
+
+#contact .contact-form label {
+  display: block;
+}
+
+#contact .contact-form input,
+#contact .contact-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.col_two_third { 
+	width: 60.00%; 
+	display: block;
+	position: relative;
+	margin-right: 0%;
+	margin-bottom: 50px;
+	margin-left: 40px;
+	float: left;
+}
+
+.col_one_third { 
+	width: 20%; 	
+	display: block;
+	position: relative;
+	margin-right: 40px;
+	margin-bottom: 50px;
+	float: left; 
+}
+
+.col_last {
+	margin-right: 40px !important;
+	float: right;
+	clear: right;
+}
 
 #header {
   width: 100% !important
@@ -86,13 +167,11 @@ width: 100%;
   font-family: 'Times New Roman', Times, serif;
 }
 
-body {
-  margin: 20px;
-}
+
 
 .action {
   margin-left: 10px;
-  color: #777;
+  color: #57606a;
   font-size: 14px;
   cursor: pointer;
 }
@@ -127,7 +206,7 @@ body {
   font-weight: normal;
   text-decoration: none;
   margin-bottom: 5px;
-  font-size: 14px;
+  font-size: 16px;
   color: rgb(32, 29, 29);
 }
 
@@ -189,7 +268,7 @@ body {
 }
 
 .action.category {
-  font-size: 15px;
+  font-size: 13px;
   cursor: default;
 }
 
@@ -240,101 +319,7 @@ body {
   margin: 0 15px;
 }
 
-/*-----------------------------------------------------------------------------------
 
-	Theme Name: Canvas
-	Theme URI: http://themes.semicolonweb.com/html/canvas
-	Description: The Multi-Purpose Template
-	Author: SemiColonWeb
-	Author URI: http://themeforest.net/user/semicolonweb
-	Version: 5.9
-
------------------------------------------------------------------------------------*/
-
-/* ----------------------------------------------------------------
-
-	- Basic
-	- Typography
-	- Basic Layout Styles
-	- Helper Classes
-	- Sections
-	- Columns & Grids
-	- Flex Slider
-	- Swiper Slider
-	- Top Bar
-	- Header
-		- Logo
-		- Primary Menu
-		- Mega Menu
-		- Top Search
-		- Top Cart
-		- Sticky Header
-		- Page Menu
-		- Side Header
-	- Side Panel
-	- Slider
-	- Page Title
-	- Content
-	- Portfolio
-	- Blog
-	- Shop
-	- Events
-	- Shortcodes
-		- Countdown
-		- Buttons
-		- Promo Boxes
-		- Featured Boxes
-		- Process Steps
-		- Styled Icons
-		- Toggles
-		- Accordions
-		- Tabs
-		- Side Navigation
-		- FAQ List
-		- Clients
-		- Testimonials
-		- Team
-		- Pricing Boxes
-		- Counter
-		- Animated Rounded Skills
-		- Skills Bar
-		- Dropcaps & Highlights
-		- Quotes & Blockquotes
-		- Text Rotater
-	- Owl Carousel
-	- Overlays
-	- Forms
-	- Google Maps
-	- Heading Styles
-	- Divider
-	- Magazine Specific Classes
-	- Go To Top
-	- Error 404
-	- Landing Pages
-	- Preloaders
-	- Toastr Notifications
-	- Footer
-	- Widgets
-		- Tag Cloud
-		- Links
-		- Testimonial & Twitter
-		- Quick Contact Form
-		- Newsletter
-		- Twitter Feed
-		- Navigation Tree
-	- Wedding
-	- Bootstrap Specific
-	- Cookie Notification
-	- Stretched Layout
-	- Page Transitions
-	- Youtube Video Backgrounds
-
----------------------------------------------------------------- */
-
-
-/* ----------------------------------------------------------------
-	Bootstrap Adjustments
------------------------------------------------------------------*/
 
 @media (min-width: 576px) {
 	.container { max-width: 540px; }
@@ -405,7 +390,7 @@ dl, dt, dd, ol, ul, li {
 
 body {
 	line-height: 1.5;
-	color: #555;
+	color: rgb(58, 55, 55);
 	font-family: 'Lato', sans-serif;
 }
 
@@ -460,13 +445,6 @@ h4 { font-weight: 600; }
 
 h5,
 h6 { font-weight: bold; }
-
-h1 > span:not(.nocolor):not(.badge),
-h2 > span:not(.nocolor):not(.badge),
-h3 > span:not(.nocolor):not(.badge),
-h4 > span:not(.nocolor):not(.badge),
-h5 > span:not(.nocolor):not(.badge),
-h6 > span:not(.nocolor):not(.badge) { color: #1ABC9C; }
 
 p,
 pre,
@@ -852,8 +830,6 @@ span.middot {
 .col_full { width: 100%; }
 .col_half,
 .postcontent.bothsidebar { width: 48%; }
-.col_one_third { width: 30.63%; }
-.col_two_third { width: 65.33%; }
 .col_one_fourth,
 .sidebar { width: 22%; }
 .col_three_fourth,
@@ -874,8 +850,6 @@ body.stretched .container-fullwidth {
 .sidebar,
 .col_full,
 .col_half,
-.col_one_third,
-.col_two_third,
 .col_three_fourth,
 .col_one_fourth,
 .col_one_fifth,
@@ -897,11 +871,7 @@ body.stretched .container-fullwidth {
 	margin-right: 0;
 }
 
-.col_last {
-	margin-right: 0 !important;
-	float: right;
-	clear: right;
-}
+
 
 
 /* ----------------------------------------------------------------
@@ -5755,12 +5725,7 @@ body:not(.device-touch) .entry-link {
 -----------------------------------------------------------------*/
 
 
-#comments {
-	position: relative;
-	margin-top: 50px;
-	padding-top: 50px;
-	border-top: 1px solid #EEE;
-}
+
 
 .commentlist {
 	list-style: none;
@@ -5793,7 +5758,7 @@ body:not(.device-touch) .entry-link {
 	position: relative;
 	border: 1px solid #E5E5E5;
 	border-radius: 5px;
-	padding: 20px 20px 20px 35px;
+	padding: 10px 20px 0px 50px;
 }
 
 .commentlist ul .comment-wrap {
@@ -5853,8 +5818,7 @@ body:not(.device-touch) .entry-link {
 .comment-content .comment-author {
 	margin-bottom: -10px;
 	font-size: 16px;
-	font-weight: bold;
-	color: #555;
+	color: rgb(172, 59, 59)
 }
 
 .comment-content .comment-author a {

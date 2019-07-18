@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PostItem from './PostItem';
 import { getPosts } from '../../actions/index';
+import CreatePost from './CreatePost';
 
 const Posts = ({ getPosts, post: { posts } }) => {
   useEffect(() => {
@@ -11,18 +12,23 @@ const Posts = ({ getPosts, post: { posts } }) => {
 
   return (
     <section id="content">
-      <div class="content-wrap">
-        <div class="container clearfix">
-          <Fragment>
-            <div class="postcontent nobottommargin clearfix">
-              {posts.map(post => (
-                <Fragment>
-                  <PostItem key={post._id} post={post} />
-                </Fragment>
-              ))}
+      <div className="content-wrap">
+        <Fragment>
+          <div className="col_two_third">
+            {posts.map(post => (
+              <Fragment>
+                <PostItem key={post._id} post={post} />
+              </Fragment>
+            ))}
+          </div>
+        </Fragment>
+        <div className="col_one_third col_last">
+          <section className="contact">
+            <div className="contact-form bg-light">
+              <h6 className="m-heading light">.</h6>
+              <CreatePost />
             </div>
-          </Fragment>
-          <div class="sidebar nobottommargin col_last clearfix" />
+          </section>
         </div>
       </div>
     </section>

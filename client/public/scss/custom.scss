@@ -1,0 +1,29 @@
+$theme-colors: (
+  'primary': #93cb52,
+  'danger': #ff4136,
+  'light': #e7e9ea
+);
+
+.btn {
+  display: inline-block;
+  color: #fff;
+  background: #93cb52;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 10px;
+}
+
+.btn-dark {
+  color: #fff;
+  background-color: #5a5f63;
+  border-color: #5a5f63;
+}
+
+.form-horizontal {
+  font-size: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+@import '../../node_modules/bootstrap/scss/bootstrap';

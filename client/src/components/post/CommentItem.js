@@ -11,7 +11,7 @@ const CommentItem = ({ comment: { text, author, date } }) => (
           <span class="comment-avatar clearfix">
             <img
               alt="#"
-              src="http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=60"
+              src="https://randomuser.me/api/portraits/women/1.jpg"
               class="avatar avatar-60 photo avatar-default"
               height="60"
               width="60"
@@ -24,7 +24,7 @@ const CommentItem = ({ comment: { text, author, date } }) => (
           {author}
           <span>
             <a href="#" title="Permalink to this comment">
-              {moment.utc(date).format('M-D-YY')}
+              {moment.utc(date).format('M-D-YY h:mm a')}
             </a>
           </span>
         </div>

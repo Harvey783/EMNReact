@@ -14,8 +14,6 @@ const PostItem = ({
   <Fragment>
     {showActions && (
       <Fragment>
-        {/* <div className="post"> */}
-
         <div className="post">
           <img className="avatar" src={avatar} alt="avatar" />
           <div className="content">
@@ -24,7 +22,7 @@ const PostItem = ({
                 {title}
               </Link>
               <span className="action" />
-              <span className="action category">{category}</span>
+              <span className="action category">{category.toUpperCase()}</span>
             </h4>
             <div className="text">{text}</div>
             <a className="action" href="/posts/:id">
@@ -46,7 +44,7 @@ const PostItem = ({
             </span>
             <span className="action " />
             <span className="action submitted ">
-              Posted by {author} on {moment.utc(date).format('M-D-YY')}
+              Posted by {author} on {moment.utc(date).format('M-D-YY h:mm a')}
             </span>
           </div>
         </div>

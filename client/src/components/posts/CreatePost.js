@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createPost } from '../../actions/index';
@@ -19,46 +19,51 @@ const CreatePost = ({ createPost, history }) => {
   return (
     <Fragment>
       <form
-        className="post-form"
+        className="form-horizontal"
         onSubmit={e => {
           e.preventDefault();
           createPost(formData, history);
         }}
       >
-        <div className="post-form-group">
-          <input
-            type="text"
-            placeholder="Title"
-            name="title"
-            value={title}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
-        <div className="post-form-group">
-          <input
-            type="text"
-            placeholder="Text"
-            name="text"
-            value={text}
-            onChange={e => onChange(e)}
-            required
-          />
-        </div>
-        <div className="post-form-group">
-          <input
-            type="text"
-            placeholder="Category"
-            name="category"
-            value={category}
-            onChange={e => onChange(e)}
-          />
+        <div>
+          <div className="form-group">
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Post Title"
+              name="title"
+              value={title}
+              onChange={e => onChange(e)}
+              required
+            />
+          </div>
+
+          <div id="category" className="form-group">
+            <input
+              className="form-control"
+              type="text"
+              placeholder=" Post Category"
+              name="category"
+              value={category}
+              onChange={e => onChange(e)}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <textarea
+              className="form-control"
+              type="text"
+              placeholder="Say Something"
+              name="text"
+              value={text}
+              onChange={e => onChange(e)}
+              required
+            />
+          </div>
         </div>
 
-        <input type="submit" className="btn btn-dark my-1" />
-        <Link className="btn btn-light my-1" to="/">
-          Go Back
-        </Link>
+        <input type="submit" className="btn btn-dark btn-block" />
       </form>
     </Fragment>
   );
