@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { addLike, removeLike } from '../../actions/index';
 import moment from 'moment';
 
-const PostItem = ({
+const CommentPostItem = ({
   addLike,
   removeLike,
   post: { _id, text, title, category, comments, author, date, likes, avatar },
@@ -15,15 +15,15 @@ const PostItem = ({
     {showActions && (
       <Fragment>
         <div className="post-item-wrapper">
-          <img className="post-item-avatar" src={avatar} alt="avatar" />
+          <img className="comment-item-avatar" src={avatar} alt="avatar" />
           <div className="post-item-content-wrapper">
-            <div className="post-item-title-wrapper">
+            <div className="comment-item-title-wrapper">
               <h1 className="post-item-post-title">
                 <Link to={`/posts/${_id}`}>{title}</Link>
               </h1>
             </div>
-            <div className="post-item-post-text">{text}</div>
-            <div className="post-item-post-details-wrapper">
+            <div className="comment-overflow-post-item-post-text">{text}</div>
+            <div className="comment-item-post-details-wrapper">
               <div className="post-item-post-details-comments-wrapper">
                 <Link
                   className="post-item-post-details-comment"
@@ -55,10 +55,10 @@ const PostItem = ({
                   />
                 </span>
               </div>
-              <span className="post-item-post-details-comments-span ">
-                Posted in {category} by {author} on{' '}
-                {moment.utc(date).format('M-D-YY h:mm a')}
-              </span>
+            </div>
+            <div className="comment-post-item-date">
+              Posted in {category} by {author} on
+              {moment.utc(date).format('M-D-YY h:mm a')}
             </div>
           </div>
         </div>
@@ -67,11 +67,11 @@ const PostItem = ({
   </Fragment>
 );
 
-PostItem.defaultProps = {
+CommentPostItem.defaultProps = {
   showActions: true
 };
 
-PostItem.propTypes = {
+CommentPostItem.propTypes = {
   post: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
   addLike: PropTypes.func.isRequired,
@@ -86,4 +86,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { addLike, removeLike }
-)(PostItem);
+)(CommentPostItem);

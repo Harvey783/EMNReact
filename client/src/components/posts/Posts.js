@@ -17,27 +17,34 @@ const Posts = ({ getPosts, post: { posts } }) => {
   );
 
   return (
-    <section id="content">
-      <div className="content-wrap">
-        <Fragment>
-          <div className="col_two_third">
-            {posts.map(post => (
-              <Fragment>
-                <PostItem key={post._id} post={post} />
-              </Fragment>
-            ))}
-          </div>
-        </Fragment>
-        <div className="col_one_third col_last">
-          <section className="contact">
-            <div className="contact-form bg-light">
-              <h6 className="m-heading light">.</h6>
-              <CreatePost />
-            </div>
-          </section>
-        </div>
-      </div>
-    </section>
+    <div className="posts-lists-container-wrapper">
+      <main className="posts-lists-main-section">
+        {posts.map(post => (
+          <Fragment>
+            <PostItem key={post._id} post={post} />
+          </Fragment>
+        ))}
+      </main>
+      <aside className="posts-lists-aside-section">
+        <nav className="posts-lists-aside-categories-nav">
+          <span className="posts-lists-aside-categories-nav-span">
+            categories
+          </span>
+          <a href="" className="posts-lists-aside-categories-links">
+            General
+          </a>
+          <a href="" className="posts-lists-aside-categories-links">
+            News
+          </a>
+          <a href="" className="posts-lists-aside-categories-links">
+            Technology
+          </a>
+          <a href="" className="posts-lists-aside-categories-links">
+            Politics
+          </a>
+        </nav>
+      </aside>
+    </div>
   );
 };
 

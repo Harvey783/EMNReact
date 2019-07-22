@@ -5,18 +5,25 @@ import { logoutUser } from '../../actions/index';
 
 const Header = ({ auth, logoutUser }) => {
   const authLinks = (
-    <ul className="header">
+    <ul>
       <li>
-        <Link to="/" className="title" onClick={logoutUser}>
+        <Link to="/posts/new" onClick={logoutUser}>
+          New Post
+        </Link>
+      </li>
+      <li>
+        <Link to="/" onClick={logoutUser}>
           Logout
         </Link>
       </li>
     </ul>
   );
   const publicLinks = (
-    <ul className="header">
+    <ul>
       <li>
-        <a href="/auth/google">Login with Google</a>
+        <a className="navbar-links" href="/auth/google">
+          Login with Google
+        </a>
       </li>
     </ul>
   );
@@ -25,9 +32,9 @@ const Header = ({ auth, logoutUser }) => {
     <nav id="navbar">
       <h5 className="logo">
         <Link to="/">
-          <span className="text-primary">Reddit</span>
+          <span className="text-primary">Say</span>
         </Link>
-        Lite
+        Something
       </h5>
 
       <Fragment>{auth.isAuthenticated ? authLinks : publicLinks}</Fragment>

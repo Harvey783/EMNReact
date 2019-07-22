@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import PostItem from '../posts/PostItem';
+import CommentPostItem from '../posts/CommentPostItem';
 import CommentForm from './CommentForm';
 import CommentItem from './CommentItem';
 import { getPost } from '../../actions/index';
@@ -15,30 +15,31 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
   return loading || post === null ? (
     <Spinner />
   ) : (
-    <section id="content">
-      <div class="content-wrap">
+    <div className="comment-lists-container-wrapper">
+      <main className="comment-lists-main-section">
         <Fragment>
-          <div className="col_two_third">
-            <PostItem post={post} showActions={true} />
-
-            <div id="comments" className="clearfix">
-              <ol className="commentlist">
-                {post.comments.map(comment => (
-                  <CommentItem
-                    key={comment._id}
-                    comment={comment}
-                    postId={post._id}
-                  />
-                ))}
-              </ol>
-            </div>
-          </div>
-          <div className="col_one_third col_last">
-            <CommentForm postId={post._id} />
+          <div className="comment-overflow">
+            <CommentPostItem post={post} showActions={true} />
           </div>
         </Fragment>
-      </div>
-    </section>
+        <div className="comment-lists-wrapper">
+          {post.comments.map(comment => (
+            <CommentItem
+              key={comment._id}
+              comment={comment}
+              postId={post._id}
+            />
+          ))}
+        </div>
+      </main>
+      <aside className="comment-lists-aside-section">
+        <a className="comment-lists-aside-create-comment" href="/">
+          Comment
+        </a>
+        <nav className="comment-lists-aside-categories-nav" />
+        <CommentForm postId={post._id} />
+      </aside>
+    </div>
   );
 };
 

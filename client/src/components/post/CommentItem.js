@@ -4,35 +4,34 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 
 const CommentItem = ({ comment: { text, author, date } }) => (
-  <li className="comment even thread-even depth-1" id="li-comment-1">
-    <div id="comment-1" class="comment-wrap clearfix">
-      <div class="comment-meta">
-        <div class="comment-author vcard">
-          <span class="comment-avatar clearfix">
-            <img
-              alt="#"
-              src="https://randomuser.me/api/portraits/women/1.jpg"
-              class="avatar avatar-60 photo avatar-default"
-              height="60"
-              width="60"
-            />
-          </span>
-        </div>
+  <div className="comment-item-wrapper">
+    <img
+      className="comment-item-avatar"
+      alt="#"
+      src="https://randomuser.me/api/portraits/women/1.jpg"
+      class="avatar avatar-60 photo avatar-default"
+      height="60"
+      width="60"
+    />
+
+    <div className="comment-item-content-wrapper">
+      <div className="comment-item-title-wrapper">
+        <h1 className="comment-item-comment-title" />
       </div>
-      <div class="comment-content clearfix">
-        <div class="comment-author">
-          {author}
+      <div className="comment-item-comment-text">{text}</div>
+      <div className="comment-item-comment-details-wrapper">
+        <div className="comment-item-comment-details-comments-wrapper">
+          <a className="comment-item-comment-details-comment" href="/">
+            {author}
+          </a>
           <span>
-            <a href="#" title="Permalink to this comment">
-              {moment.utc(date).format('M-D-YY h:mm a')}
-            </a>
+            <a className="comment-item-comment-details-likes" href="" />
+            {moment.utc(date).format('M-D-YY h:mm a')}
           </span>
         </div>
-        <p>{text}</p>
       </div>
-      <div class="clear" />
     </div>
-  </li>
+  </div>
 );
 
 CommentItem.propTypes = {
