@@ -7,30 +7,35 @@ const CommentForm = ({ postId, addComment }) => {
   const [text, setText] = useState('');
 
   return (
-    <form
-      className="form-horizontal"
-      action="#"
-      method="post"
-      id="commentform"
-      onSubmit={e => {
-        e.preventDefault();
-        addComment(postId, { text });
-        setText('');
-      }}
-    >
-      <div className="form-group">
-        <textarea
-          className="form-control"
-          name="text"
-          type="text"
-          value={text}
-          placeholder="Say Something"
-          onChange={e => setText(e.target.value)}
-          required
-        />
+    <section id="comment">
+      <div className="comment-form">
+        <form
+          action="#"
+          method="post"
+          id="commentform"
+          onSubmit={e => {
+            e.preventDefault();
+            addComment(postId, { text });
+            setText('');
+          }}
+        >
+          <div className="form-group">
+            <label for="text">Comment</label>
+            <textarea
+              className="form-control"
+              name="text"
+              type="text"
+              value={text}
+              onChange={e => setText(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-dark btn-block">
+            Comment
+          </button>
+        </form>
       </div>
-      <input type="submit" className="btn btn-dark btn-block" />
-    </form>
+    </section>
   );
 };
 

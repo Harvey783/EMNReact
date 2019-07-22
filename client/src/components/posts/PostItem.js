@@ -22,7 +22,7 @@ const PostItem = ({
                 <Link to={`/posts/${_id}`}>{title}</Link>
               </h1>
             </div>
-            <div className="post-item-post-text">{text}</div>
+
             <div className="post-item-post-details-wrapper">
               <div className="post-item-post-details-comments-wrapper">
                 <Link
@@ -40,25 +40,11 @@ const PostItem = ({
                     {likes.length} likes
                   </Link>
                 </span>
-                <span className="action ">
-                  <i
-                    onClick={() => addLike(_id)}
-                    className="far fa-thumbs-up fa-sm"
-                    style={{ color: '#33a0ff' }}
-                  />
-                </span>
-                <span className="action ">
-                  <i
-                    onClick={() => removeLike(_id)}
-                    className="far fa-thumbs-down fa-sm"
-                    style={{ color: '#33a0ff' }}
-                  />
-                </span>
               </div>
-              <span className="post-item-post-details-comments-span ">
-                Posted in {category} by {author} on{' '}
-                {moment.utc(date).format('M-D-YY h:mm a')}
-              </span>
+            </div>
+            <div className="comment-post-item-date">
+              Posted in {category} by {author} on
+              {moment.utc(date).format('M-D-YY h:mm a')}
             </div>
           </div>
         </div>

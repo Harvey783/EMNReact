@@ -18,9 +18,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
     <div className="comment-lists-container-wrapper">
       <main className="comment-lists-main-section">
         <Fragment>
-          <div className="comment-overflow">
-            <CommentPostItem post={post} showActions={true} />
-          </div>
+          <CommentPostItem post={post} showActions={true} />
         </Fragment>
         <div className="comment-lists-wrapper">
           {post.comments.map(comment => (
@@ -33,9 +31,6 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
         </div>
       </main>
       <aside className="comment-lists-aside-section">
-        <a className="comment-lists-aside-create-comment" href="/">
-          Comment
-        </a>
         <nav className="comment-lists-aside-categories-nav" />
         <CommentForm postId={post._id} />
       </aside>
