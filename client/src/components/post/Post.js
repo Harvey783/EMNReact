@@ -7,7 +7,7 @@ import CommentItem from './CommentItem';
 import { getPost } from '../../actions/index';
 import Spinner from '../layout/Spinner';
 
-const Post = ({ getPost, post: { post, loading }, match }) => {
+const Post = ({ getPost, post: { post, loading }, match, auth }) => {
   useEffect(() => {
     getPost(match.params.id);
   }, [getPost]);
@@ -43,7 +43,7 @@ Post.propTypes = {
   post: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({ post: state.post });
+const mapStateToProps = state => ({ post: state.post, auth: state.auth });
 
 export default connect(
   mapStateToProps,

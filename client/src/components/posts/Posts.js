@@ -25,24 +25,9 @@ const Posts = ({ getPosts, post: { posts } }) => {
           </Fragment>
         ))}
       </main>
-      <aside className="posts-lists-aside-section">
-        <nav className="posts-lists-aside-categories-nav">
-          <span className="posts-lists-aside-categories-nav-span">
-            categories
-          </span>
-          <a href="" className="posts-lists-aside-categories-links">
-            General
-          </a>
-          <a href="" className="posts-lists-aside-categories-links">
-            News
-          </a>
-          <a href="" className="posts-lists-aside-categories-links">
-            Technology
-          </a>
-          <a href="" className="posts-lists-aside-categories-links">
-            Politics
-          </a>
-        </nav>
+      <aside className="comment-lists-aside-section">
+        <nav className="comment-lists-aside-categories-nav" />
+        <CreatePost />
       </aside>
     </div>
   );

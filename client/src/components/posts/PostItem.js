@@ -22,6 +22,7 @@ const PostItem = ({
                 <Link to={`/posts/${_id}`}>{title}</Link>
               </h1>
             </div>
+            <div className="post-item-post-text">{text}</div>
 
             <div className="post-item-post-details-wrapper">
               <div className="post-item-post-details-comments-wrapper">

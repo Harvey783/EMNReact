@@ -10,6 +10,7 @@ const CommentForm = ({ postId, addComment }) => {
     <section id="comment">
       <div className="comment-form">
         <form
+          className="form-horizontal"
           action="#"
           method="post"
           id="commentform"
@@ -20,11 +21,11 @@ const CommentForm = ({ postId, addComment }) => {
           }}
         >
           <div className="form-group">
-            <label for="text">Comment</label>
             <textarea
               className="form-control"
               name="text"
               type="text"
+              placeholder="Say Something"
               value={text}
               onChange={e => setText(e.target.value)}
               required

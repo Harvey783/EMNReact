@@ -7,11 +7,6 @@ const Header = ({ auth, logoutUser }) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to="/posts/new" onClick={logoutUser}>
-          New Post
-        </Link>
-      </li>
-      <li>
         <Link to="/" onClick={logoutUser}>
           Logout
         </Link>

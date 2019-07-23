@@ -18,53 +18,59 @@ const CreatePost = ({ createPost, history }) => {
 
   return (
     <Fragment>
-      <form
-        className="form-horizontal"
-        onSubmit={e => {
-          e.preventDefault();
-          createPost(formData, history);
-        }}
-      >
-        <div>
-          <div className="form-group">
-            <input
-              className="form-control"
-              type="text"
-              placeholder="Post Title"
-              name="title"
-              value={title}
-              onChange={e => onChange(e)}
-              required
-            />
-          </div>
+      <section id="comment">
+        <div className="comment-form">
+          <form
+            className="form-horizontal"
+            onSubmit={e => {
+              e.preventDefault();
+              createPost(formData, history);
+            }}
+          >
+            <div>
+              <div className="form-group">
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Post Title"
+                  name="title"
+                  value={title}
+                  onChange={e => onChange(e)}
+                  required
+                />
+              </div>
 
-          <div id="category" className="form-group">
-            <input
-              className="form-control"
-              type="text"
-              placeholder=" Post Category"
-              name="category"
-              value={category}
-              onChange={e => onChange(e)}
-              required
-            />
-          </div>
+              <div id="category" className="form-group">
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder=" Post Category"
+                  name="category"
+                  value={category}
+                  onChange={e => onChange(e)}
+                  required
+                />
+              </div>
 
-          <div className="form-group">
-            <textarea
-              className="form-control"
-              type="text"
-              placeholder="Say Something"
-              name="text"
-              value={text}
-              onChange={e => onChange(e)}
-              required
-            />
-          </div>
+              <div className="form-group">
+                <textarea
+                  className="form-control"
+                  type="text"
+                  placeholder="Say Something"
+                  name="text"
+                  value={text}
+                  onChange={e => onChange(e)}
+                  required
+                />
+              </div>
+            </div>
+
+            <button type="submit" className="btn btn-dark btn-block">
+              Post
+            </button>
+          </form>
         </div>
-
-        <input type="submit" className="btn btn-dark btn-block" />
-      </form>
+      </section>
     </Fragment>
   );
 };
