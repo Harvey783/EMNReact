@@ -29,7 +29,7 @@ const CommentItem = ({
           </a>
           <span>
             <a className="comment-item-comment-details-likes" href="" />
-            {moment.utc(date).format('M-D-YY h:mm a')}
+            {moment(date).fromNow()}
           </span>
           <span className="action ">
             <i

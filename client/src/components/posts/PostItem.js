@@ -58,8 +58,7 @@ const PostItem = ({
               </div>
             </div>
             <div className="comment-post-item-date">
-              Posted in {category} by {author} on
-              {moment.utc(date).format('M-D-YY h:mm a')}
+              Posted in {category} by {author} {moment(date).fromNow()}
             </div>
           </div>
         </div>
