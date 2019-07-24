@@ -41,6 +41,20 @@ const PostItem = ({
                     {likes.length} likes
                   </Link>
                 </span>
+                <span className="action ">
+                  <i
+                    onClick={() => addLike(_id)}
+                    className="far fa-thumbs-up fa-sm"
+                    style={{ color: '#33a0ff' }}
+                  />
+                </span>
+                <span className="action ">
+                  <i
+                    onClick={() => removeLike(_id)}
+                    className="far fa-thumbs-down fa-sm"
+                    style={{ color: '#33a0ff' }}
+                  />
+                </span>
               </div>
             </div>
             <div className="comment-post-item-date">

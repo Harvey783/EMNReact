@@ -2,12 +2,12 @@ import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import CommentPostItem from '../posts/CommentPostItem';
-import CommentForm from './CommentForm';
 import CommentItem from './CommentItem';
 import { getPost } from '../../actions/index';
 import Spinner from '../layout/Spinner';
+import CommentForm from '../post/CommentForm';
 
-const Post = ({ getPost, post: { post, loading }, match, auth }) => {
+const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
     getPost(match.params.id);
   }, [getPost]);
@@ -43,7 +43,7 @@ Post.propTypes = {
   post: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({ post: state.post, auth: state.auth });
+const mapStateToProps = state => ({ post: state.post });
 
 export default connect(
   mapStateToProps,

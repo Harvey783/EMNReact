@@ -4,6 +4,11 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 .text-primary {
   color: #33a0ff;
   font-size: 20px;
@@ -59,6 +64,7 @@
 
 .posts-lists-container-wrapper {
   display: flex;
+
   margin: 0px;
   width: 100%;
   padding-left: 20px;
@@ -66,9 +72,6 @@
 }
 
 .post-item-post-details-wrapper {
-  /* overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; */
   font-size: 13px;
   margin-top: 5px;
   line-height: 10px;
@@ -158,7 +161,7 @@
   width: 60px;
   height: 55px;
   margin-left: 10px;
-  margin-top: 5px;
+  margin-top: 10px;
   margin-bottom: 5px;
 }
 
@@ -241,7 +244,7 @@
   width: 60px;
   height: 55px;
   margin-left: 10px;
-  margin-top: 5px;
+  margin-top: 10px;
   margin-bottom: 5px;
 }
 
@@ -253,11 +256,10 @@
 }
 
 .comment-overflow-post-item-post-text {
-  display: block;
-  font-size: 13px;
-  font-weight: 200;
-  text-decoration: none;
-  color: #b0b8be;
+  font-size: 14px;
+  max-width: 600px;
+  line-height: 20px;
+  color: #b0b8bf;
 }
 
 .comment-item-post-details-wrapper {

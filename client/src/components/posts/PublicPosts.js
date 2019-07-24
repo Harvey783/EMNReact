@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import PostItem from './PostItem';
 import { getPosts } from '../../actions/index';
-import CreatePost from './CreatePost';
 
-const Posts = ({ getPosts, post: { posts } }) => {
+const PublicPosts = ({ getPosts, post: { posts } }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
@@ -21,13 +20,12 @@ const Posts = ({ getPosts, post: { posts } }) => {
       </main>
       <aside className="comment-lists-aside-section">
         <nav className="comment-lists-aside-categories-nav" />
-        <CreatePost />
       </aside>
     </div>
   );
 };
 
-Posts.propTypes = {
+PublicPosts.propTypes = {
   getPosts: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired
 };
@@ -39,4 +37,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getPosts }
-)(Posts);
+)(PublicPosts);

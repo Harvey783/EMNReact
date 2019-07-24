@@ -8,3 +8,4 @@ export const UPDATE_LIKES = 'UPDATE_LIKES';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
+export const DELETE_POST = 'DELETE_POST';
