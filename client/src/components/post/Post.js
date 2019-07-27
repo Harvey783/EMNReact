@@ -6,13 +6,9 @@ import CommentItem from './CommentItem';
 import { getPost } from '../../actions/index';
 import Spinner from '../layout/Spinner';
 import CommentForm from '../post/CommentForm';
+import CommentFormBlank from '../post/CommentFormBlank';
 
-const Post = ({
-  getPost,
-  post: { post, loading },
-
-  match
-}) => {
+const Post = ({ getPost, post: { post, loading }, auth, match }) => {
   useEffect(() => {
     getPost(match.params.id);
   }, [getPost]);
@@ -37,7 +33,11 @@ const Post = ({
       </main>
       <aside className="comment-lists-aside-section">
         <nav className="comment-lists-aside-categories-nav" />
-        <CommentForm postId={post._id} />
+        {auth.isAuthenticated ? (
+          <CommentForm postId={post._id} />
+        ) : (
+          <CommentFormBlank postId={post._id} />
+        )}
       </aside>
     </div>
   );
