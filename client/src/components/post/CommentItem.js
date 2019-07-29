@@ -18,9 +18,6 @@ const CommentItem = ({
     />
 
     <div className="comment-item-content-wrapper">
-      <div className="comment-item-title-wrapper">
-        <h1 className="comment-item-comment-title" />
-      </div>
       <div className="comment-item-comment-text">{text}</div>
       <div className="comment-item-comment-details-wrapper">
         <div className="comment-item-comment-details-comments-wrapper">
@@ -28,7 +25,7 @@ const CommentItem = ({
             {author}
           </a>
           <span>
-            <a className="comment-item-comment-details-likes" href="" />
+            <a className="comment-item-comment-details-likes" href="#" />
             {moment(date).fromNow()}
           </span>
           <span className="action ">

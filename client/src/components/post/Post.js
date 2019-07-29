@@ -36,7 +36,7 @@ const Post = ({ getPost, post: { post, loading }, auth, match }) => {
         {auth.isAuthenticated ? (
           <CommentForm postId={post._id} />
         ) : (
-          <CommentFormBlank postId={post._id} />
+          <CommentFormBlank />
         )}
       </aside>
     </div>

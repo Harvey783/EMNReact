@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addComment } from '../../actions/index';
 
-const CommentFormBlank = ({}) => {
+const CommentFormBlank = () => {
   return (
     <section id="comment">
       <div className="comment-form" />
