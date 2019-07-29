@@ -5,8 +5,10 @@ import moment from 'moment';
 import { deleteComment } from '../../actions/index';
 
 const CommentItem = ({
+  postId,
   deleteComment,
-  comment: { text, author, date, _id }
+  auth,
+  comment: { text, author, user, date, _id }
 }) => (
   <div className="comment-item-wrapper">
     <img
@@ -29,11 +31,13 @@ const CommentItem = ({
             {moment(date).fromNow()}
           </span>
           <span className="action ">
-            <i
-              onClick={() => deleteComment(_id)}
-              className="far fa-trash-alt fa-sm"
-              style={{ color: '#33a0ff' }}
-            />
+            {!auth.loading && user === auth.user._id && (
+              <i
+                onClick={() => deleteComment(postId, _id)}
+                className="far fa-trash-alt fa-sm"
+                style={{ color: '#33a0ff' }}
+              />
+            )}
           </span>
         </div>
       </div>
