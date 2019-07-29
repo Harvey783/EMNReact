@@ -6,7 +6,8 @@ import {
   SET_USER,
   UPDATE_LIKES,
   ADD_COMMENT,
-  DELETE_COMMENT
+  DELETE_COMMENT,
+  DELETE_POST
 } from './types';
 
 export const logoutUser = () => dispatch => {
@@ -34,6 +35,11 @@ export const createPost = (formData, history) => async dispatch => {
   const res = await axios.post('/api/posts', formData, config);
   dispatch({ type: CREATE_POST, payload: res.data });
   history.push('/');
+};
+
+export const deletePost = id => async dispatch => {
+  await axios.delete(`/api/posts/${id}`);
+  dispatch({ type: DELETE_POST, payload: id });
 };
 
 export const addLike = id => async dispatch => {

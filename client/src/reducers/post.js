@@ -4,7 +4,8 @@ import {
   CREATE_POST,
   UPDATE_LIKES,
   ADD_COMMENT,
-  DELETE_COMMENT
+  DELETE_COMMENT,
+  DELETE_POST
 } from '../actions/types';
 
 const initialState = {
@@ -31,6 +32,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         posts: [action.payload, ...state.posts],
+        loading: false
+      };
+    case DELETE_POST:
+      return {
+        ...state,
+        posts: state.posts.filter(post => post._id !== action.payload),
         loading: false
       };
     case UPDATE_LIKES:

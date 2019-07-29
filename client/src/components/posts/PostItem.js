@@ -2,13 +2,26 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addLike, removeLike } from '../../actions/index';
+import { addLike, removeLike, deletePost } from '../../actions/index';
 import moment from 'moment';
 
 const PostItem = ({
   addLike,
   removeLike,
-  post: { _id, text, title, category, comments, author, date, likes, avatar },
+  deletePost,
+  post: {
+    _id,
+    text,
+    title,
+    category,
+    comments,
+    author,
+    date,
+    user,
+    likes,
+    avatar
+  },
+  auth,
   showActions
 }) => (
   <Fragment>
@@ -44,18 +57,31 @@ const PostItem = ({
                   </Link>
                 </span>
                 <span className="action ">
-                  <i
-                    onClick={() => addLike(_id)}
-                    className="far fa-thumbs-up fa-sm"
-                    style={{ color: '#33a0ff' }}
-                  />
+                  {!auth.loading && user === auth.user._id && (
+                    <i
+                      onClick={() => addLike(_id)}
+                      className="far fa-thumbs-up fa-sm"
+                      style={{ color: '#33a0ff' }}
+                    />
+                  )}
                 </span>
                 <span className="action ">
-                  <i
-                    onClick={() => removeLike(_id)}
-                    className="far fa-thumbs-down fa-sm"
-                    style={{ color: '#33a0ff' }}
-                  />
+                  {!auth.loading && user === auth.user._id && (
+                    <i
+                      onClick={() => removeLike(_id)}
+                      className="far fa-thumbs-down fa-sm"
+                      style={{ color: '#33a0ff' }}
+                    />
+                  )}
+                </span>
+                <span className="action ">
+                  {!auth.loading && user === auth.user._id && (
+                    <i
+                      onClick={() => deletePost(_id)}
+                      className="far fa-trash-alt fa-sm"
+                      style={{ color: '#33a0ff' }}
+                    />
+                  )}
                 </span>
               </div>
             </div>
@@ -78,6 +104,7 @@ PostItem.propTypes = {
   auth: PropTypes.object.isRequired,
   addLike: PropTypes.func.isRequired,
   removeLike: PropTypes.func.isRequired,
+  deletePost: PropTypes.func.isRequired,
   showActions: PropTypes.bool
 };
 
@@ -87,5 +114,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addLike, removeLike }
+  { addLike, removeLike, deletePost }
 )(PostItem);
