@@ -8,13 +8,13 @@ const CommentItem = ({
   postId,
   deleteComment,
   auth,
-  comment: { text, author, user, date, _id }
+  comment: { text, author, avatar, user, date, _id }
 }) => (
   <div className="comment-item-wrapper">
     <img
       className="comment-item-avatar"
+      src={avatar}
       alt="avatar"
-      src="https://randomuser.me/api/portraits/women/1.jpg"
       height="60"
       width="60"
     />
