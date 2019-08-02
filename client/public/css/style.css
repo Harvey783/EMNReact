@@ -257,6 +257,7 @@ body {
 }
 
 .comment-overflow-post-item-post-text {
+  margin-right: 10px;
   font-size: 14px;
   max-width: 600px;
   line-height: 20px;
@@ -353,6 +354,7 @@ body {
   /* overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; */
+  margin-right: 10px;
   font-size: 14px;
   max-width: 600px;
   line-height: 20px;

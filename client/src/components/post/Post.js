@@ -22,13 +22,16 @@ const Post = ({ getPost, post: { post, loading }, auth, match }) => {
           <CommentPostItem post={post} showActions={true} />
         </Fragment>
         <div className="comment-lists-wrapper">
-          {post.comments.map(comment => (
-            <CommentItem
-              key={comment._id}
-              comment={comment}
-              postId={post._id}
-            />
-          ))}
+          {post.comments
+            .concat()
+            .map(comment => (
+              <CommentItem
+                key={comment._id}
+                comment={comment}
+                postId={post._id}
+              />
+            ))
+            .sort((a, b) => (b.date > a.date ? 1 : -1))}
         </div>
       </main>
       <aside className="comment-lists-aside-section">
