@@ -22,19 +22,13 @@ const CommentItem = ({
     <div className="comment-item-content-wrapper">
       <div className="comment-item-comment-text">{text}</div>
       <div className="comment-item-comment-details-wrapper">
-        <div className="comment-item-comment-details-comments-wrapper">
-          <a className="comment-item-comment-details-comment" href="/">
-            {author}
-          </a>
-          <span>
-            <a className="comment-item-comment-details-likes" href="#" />
-            {moment(date).fromNow()}
-          </span>
+        <div className="comment-post-item-date">
+          Commented by {author} {moment(date).fromNow()}
           <span className="action ">
             {!auth.loading && user === auth.user._id && (
               <i
                 onClick={() => deleteComment(postId, _id)}
-                className="far fa-trash-alt fa-sm"
+                className="far fa-trash-alt fa-xs"
                 style={{ color: '#33a0ff' }}
               />
             )}
