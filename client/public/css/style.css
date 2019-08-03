@@ -273,9 +273,17 @@ body {
 
 .comment-post-item-date {
   color: #b0b8bf;
+  text-decoration: none;
+  text-decoration-color: #b0b8bf;
   margin-top: 5px;
   font-size: 11px;
   line-height: 15px;
+}
+
+.comment-post-item-date a {
+  text-decoration: none;
+  cursor: none;
+  color: #b0b8bf;
 }
 
 .comment-lists-container-wrapper {

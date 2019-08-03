@@ -35,6 +35,12 @@ router.get('/posts', async (req, res) => {
   res.json(posts);
 });
 
+router.get('/:category', async (req, res) => {
+  const category = req.params.category;
+  const posts = await Post.find({ category }).sort('-date');
+  res.json(posts);
+});
+
 router.get('/posts/:id', async (req, res) => {
   const post = await Post.findById(req.params.id);
   if (!post) {

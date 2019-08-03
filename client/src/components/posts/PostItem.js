@@ -86,7 +86,8 @@ const PostItem = ({
               </div>
             </div>
             <div className="comment-post-item-date">
-              Posted in {category} by {author} {moment(date).fromNow()}
+              Posted in <Link to={`/${category}`}>{category}</Link> by {author}{' '}
+              {moment(date).fromNow()}
             </div>
           </div>
         </div>
