@@ -9,6 +9,7 @@ const Posts = ({ getPosts, post: { posts } }) => {
   useEffect(() => {
     getPosts();
   }, [getPosts]);
+  console.log(posts);
 
   return (
     <div className="posts-lists-container-wrapper">

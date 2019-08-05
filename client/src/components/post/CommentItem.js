@@ -25,7 +25,7 @@ const CommentItem = ({
         <div className="comment-post-item-date">
           Commented by {author} {moment(date).fromNow()}
           <span className="action ">
-            {!auth.loading && user === auth.user._id && (
+            {user === auth.user._id && (
               <i
                 onClick={() => deleteComment(postId, _id)}
                 className="far fa-trash-alt fa-xs"

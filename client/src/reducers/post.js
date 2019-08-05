@@ -10,8 +10,7 @@ import {
 
 const initialState = {
   posts: [],
-  post: null,
-  loading: false
+  post: null
 };
 
 export default function(state = initialState, action) {
@@ -19,26 +18,22 @@ export default function(state = initialState, action) {
     case GET_POSTS:
       return {
         ...state,
-        posts: action.payload,
-        loading: false
+        posts: action.payload
       };
     case GET_POST:
       return {
         ...state,
-        post: action.payload,
-        loading: false
+        post: action.payload
       };
     case CREATE_POST:
       return {
         ...state,
-        posts: [action.payload, ...state.posts],
-        loading: false
+        posts: [action.payload, ...state.posts]
       };
     case DELETE_POST:
       return {
         ...state,
-        posts: state.posts.filter(post => post._id !== action.payload),
-        loading: false
+        posts: state.posts.filter(post => post._id !== action.payload)
       };
     case UPDATE_LIKES:
       return {
@@ -47,14 +42,12 @@ export default function(state = initialState, action) {
           post._id === action.payload.id
             ? { ...post, likes: action.payload.likes }
             : post
-        ),
-        loading: false
+        )
       };
     case ADD_COMMENT:
       return {
         ...state,
-        post: { ...state.post, comments: action.payload },
-        loading: false
+        post: { ...state.post, comments: action.payload }
       };
     case DELETE_COMMENT:
       return {
@@ -64,8 +57,7 @@ export default function(state = initialState, action) {
           comments: state.post.comments.filter(
             comment => comment._id !== action.payload
           )
-        },
-        loading: false
+        }
       };
     default:
       return state;

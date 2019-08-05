@@ -2,7 +2,7 @@ import { SET_USER } from '../actions/types';
 import { isEmpty } from '../components/validators';
 const initialState = {
   isAuthenticated: false,
-  loading: false,
+
   user: {}
 };
 
@@ -11,8 +11,7 @@ export default function(state = initialState, action) {
     case SET_USER:
       return {
         isAuthenticated: !isEmpty(action.payload),
-        user: action.payload,
-        loading: false
+        user: action.payload
       };
     default:
       return state;

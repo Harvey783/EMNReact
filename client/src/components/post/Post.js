@@ -8,18 +8,18 @@ import Spinner from '../layout/Spinner';
 import CommentForm from '../post/CommentForm';
 import CommentFormBlank from '../post/CommentFormBlank';
 
-const Post = ({ getPost, post: { post, loading }, auth, match }) => {
+const Post = ({ getPost, post: { post }, auth, match }) => {
   useEffect(() => {
     getPost(match.params.id);
   }, [getPost]);
 
-  return loading || post === null ? (
+  return post === null ? (
     <Spinner />
   ) : (
     <div className="comment-lists-container-wrapper">
       <main className="comment-lists-main-section">
         <Fragment>
-          <CommentPostItem post={post} showActions={true} />
+          <CommentPostItem post={post} />
         </Fragment>
         <div className="comment-lists-wrapper">
           {post.comments
